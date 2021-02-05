@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavideBorghi.ItalianDotNetDateTimeUtils", "DavideBorghi.ItalianDotNetDateTimeUtils\DavideBorghi.ItalianDotNetDateTimeUtils.csproj", "{3D3DD8D4-3A82-4C92-9158-3C0F2EEB7805}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavideBorghi.ItalianDotNetDateTimeUtils.Tests", "DavideBorghi.ItalianDotNetDateTimeUtils.Tests\DavideBorghi.ItalianDotNetDateTimeUtils.Tests.csproj", "{60DF374C-2380-4291-9265-827D2C5DCBD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D3DD8D4-3A82-4C92-9158-3C0F2EEB7805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D3DD8D4-3A82-4C92-9158-3C0F2EEB7805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D3DD8D4-3A82-4C92-9158-3C0F2EEB7805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D3DD8D4-3A82-4C92-9158-3C0F2EEB7805}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60DF374C-2380-4291-9265-827D2C5DCBD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60DF374C-2380-4291-9265-827D2C5DCBD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60DF374C-2380-4291-9265-827D2C5DCBD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60DF374C-2380-4291-9265-827D2C5DCBD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EEBCB79C-4AA3-4808-AED6-FBBD36955995}
+	EndGlobalSection
+EndGlobal
