@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DavideBorghi.ItalianDotNetDateTimeUtils
 {
-	public static class DateTimeUtils
+	public static class ItalianDotNetDateTimeUtils
 	{
-		public static List<string> giorniFestiviList = new List<string>
+		public static List<string> giorniFestiviNazionaliList = new List<string>
 		{
 			"0101",
 			"0601",
@@ -21,9 +21,13 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
 			"2512",
 			"2612"
 		};
-		private static DateTime[] giorniFestivi = new DateTime[giorniFestiviList.Count];
+		public static List<string> giorniFestiviLocaliList = new List<string>
+		{
 
-		public static DateTime GetGiornoFestivoOfYear(string dateAsString, int year)
+		};
+		private static List<DateTime> giorniFestivi;
+
+		public static DateTime GetGiornoOfYearFromString(string dateAsString, int year)
         {
 			int giorno = int.Parse(dateAsString.Substring(0, 2));
 			int mese = int.Parse(dateAsString.Substring(2, 2));
@@ -52,14 +56,14 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
 		}
 
 
-		public static int HowManyWorkingDaysBetweenDates(this DateTime startDate, DateTime endDate, DateTime[] additionalGiorniFestivi = null)
+		public static int HowManyWorkingDaysBetweenDates(DateTime startDate, DateTime endDate)
 		{
 			int num = 0;
 			DateTime dateTime = ((startDate < endDate) ? startDate : endDate);
 			DateTime dateTime2 = ((startDate < endDate) ? endDate : startDate);
 			while (dateTime <= dateTime2)
 			{
-				if (!IsFestivo(dateTime, giorniFestivi) || !IsFestivo(dateTime, additionalGiorniFestivi))
+				if (!IsFestivo(dateTime))
 				{
 					num++;
 				}
@@ -68,23 +72,36 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
 			return num;
 		}
 
-		public static bool IsFestivo(this DateTime dateTime, DateTime[] giorniFestivi)
+		public static bool IsFestivo(this DateTime dateTime)
 		{
-			if (giorniFestivi == null)
-            {
-				return false;
-            }
-			return IsWeekend(dateTime) || giorniFestivi.Contains(dateTime) || GetEasterSunday(dateTime).AddDays(1.0) == dateTime;
+			giorniFestivi = CalcolaGiorniFestiviPerAnno(dateTime.Year);
+
+			return IsWeekend(dateTime) || giorniFestivi.Contains(dateTime) || GetEasterSunday(dateTime.Year).AddDays(1.0) == dateTime;
 		}
 
-		public static bool IsWeekend(this DateTime giorno)
+        private static List<DateTime> CalcolaGiorniFestiviPerAnno(int year)
+        {
+			giorniFestivi = new List<DateTime>();
+            foreach(string giorno in giorniFestiviNazionaliList)
+            {
+				giorniFestivi.Add(GetGiornoOfYearFromString(giorno, year));
+            }
+
+			foreach (string giorno in giorniFestiviLocaliList)
+			{
+				giorniFestivi.Add(GetGiornoOfYearFromString(giorno, year));
+			}
+			return giorniFestivi;
+		}
+
+        public static bool IsWeekend(this DateTime giorno)
 		{
 			return giorno.DayOfWeek == DayOfWeek.Saturday || giorno.DayOfWeek == DayOfWeek.Sunday;
 		}
 
-		public static DateTime GetEasterSunday(this DateTime dateTime)
+		public static DateTime GetEasterSunday(int year)
 		{
-			int year = dateTime.Year;
+			
 			int num = year % 19;
 			int num2 = year / 100;
 			int num3 = (num2 - num2 / 4 - (8 * num2 + 13) / 25 + 19 * num + 15) % 30;
