@@ -21,7 +21,11 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Tests
         {
             Assert.IsFalse(ItalianDotNetDateTimeUtils.IsFestivo(new DateTime(2020, 02,05)));
             Assert.IsTrue(ItalianDotNetDateTimeUtils.IsFestivo(new DateTime(2020, 01, 01)));
-            
+            //Test su festivo locale
+            Assert.IsFalse(ItalianDotNetDateTimeUtils.IsFestivo(new DateTime(2020, 06, 24)));
+            ItalianDotNetDateTimeUtils.giorniFestiviLocaliList.Add("2406");
+            Assert.IsTrue(ItalianDotNetDateTimeUtils.IsFestivo(new DateTime(2020, 06, 24)));
+
         }
         [TestMethod]
         public void IsWeekend()
@@ -36,5 +40,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Tests
         {
             Assert.AreEqual(new DateTime(2021, 2, 1), new DateTime(2021, 2, 6).StartOfWeek());
         }
+
+        
     }
 }
