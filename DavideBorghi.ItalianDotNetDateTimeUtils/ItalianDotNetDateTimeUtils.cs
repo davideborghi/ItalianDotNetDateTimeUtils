@@ -22,7 +22,8 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
 			"0111",
 			"0812",
 			"2512",
-			"2612"
+			"2612",
+			"17032011"
 		};
 		/// <summary>
 		/// Variable for local holidays such as "Santo Patrono"
@@ -43,6 +44,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
         {
 			int giorno = int.Parse(dateAsString.Substring(0, 2));
 			int mese = int.Parse(dateAsString.Substring(2, 2));
+			year = dateAsString.Length > 4 ? int.Parse(dateAsString.Substring(4, 4)) : year;
 			return new DateTime(year, mese, giorno);
         }
 		/// <summary>
