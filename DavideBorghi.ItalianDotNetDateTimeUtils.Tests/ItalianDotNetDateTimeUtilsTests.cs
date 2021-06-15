@@ -41,6 +41,11 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Tests
             Assert.AreEqual(new DateTime(2021, 2, 1), new DateTime(2021, 2, 6).StartOfWeek());
         }
 
-        
+        [TestMethod]
+        public void GetDateLavorativaFromEndOfMonthSkipNDays()
+        {
+            Assert.AreEqual(new DateTime(2021,06,25),ItalianDotNetDateTimeUtils.GetDateLavorativaFromEndOfMonthSkipNDays(new DateTime(2021, 06, 15), 4));
+            Assert.AreEqual(new DateTime(2021, 06, 23), ItalianDotNetDateTimeUtils.GetDateLavorativaFromEndOfMonthSkipNDays(new DateTime(2021, 06, 15), 5));
+        }
     }
 }
