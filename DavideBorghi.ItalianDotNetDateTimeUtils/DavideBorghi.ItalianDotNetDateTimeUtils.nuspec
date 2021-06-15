@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>DavideBorghi.ItalianDotNetDateTimeUtils</id>
+    <version>1.0.1</version>
+    <title>DavideBorghi.ItalianDotNetDateTimeUtils</title>
+    <authors>Davide Borghi</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/davideborghi/ItalianDotNetDateTimeUtils</projectUrl>
+    <iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>
+    <description>support Italian developers or any developers who need support with Italian Calendar</description>
+    <releaseNotes>Add calc of the last-n working days</releaseNotes>
+    <copyright>Copyright 2021</copyright>
+    <tags>DateTimeUtils Italian ItalianDateTime</tags>
+  </metadata>
+</package>
