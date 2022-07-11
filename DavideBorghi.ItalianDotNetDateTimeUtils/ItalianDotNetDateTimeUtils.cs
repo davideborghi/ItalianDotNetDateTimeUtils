@@ -87,6 +87,111 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
             return new DateTime(dateTime.Year, dateTime.Month, 1);
         }
         /// <summary>
+        /// Get the first day of the given "trimestre"
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns>datetime representing the first day of trimestre</returns>
+        public static DateTime GetFirstDayOfTrimestre(this DateTime dateTime)
+        {
+            int mese = dateTime.GetFirstMonthInTrimestre();
+            return new DateTime(dateTime.Year, mese, 1);
+        }
+        /// <summary>
+        /// Get the last day of the given "trimestre"
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns>datetime representing the last day of trimestre</returns>
+        public static DateTime GetLastDayOfTrimestre(this DateTime dateTime)
+        {
+            int mese = dateTime.GetLastMonthInTrimestre();
+            var date = new DateTime(dateTime.Year, mese, 1);
+            return date.GetLastDayOfMonth();
+        }
+        /// <summary>
+        /// Get the first day of the given "quadrimestre"
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns>datetime representing the first day of quadrimestre</returns>
+        public static DateTime GetFirstDayOfQuadrimestre(this DateTime dateTime)
+        {
+            int mese = dateTime.GetFirstMonthInQuadrimestre();
+            return new DateTime(dateTime.Year, mese, 1);
+        }
+        /// <summary>
+        /// Get the last day of the given "quadrimestre"
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns>datetime representing the last day of quadrimestre</returns>
+        public static DateTime GetLastDayOfQuadrimestre(this DateTime dateTime)
+        {
+            int mese = dateTime.GetLastMonthInQuadrimestre();
+            var date = new DateTime(dateTime.Year, mese, 1);
+            return date.GetLastDayOfMonth();
+        }
+        /// <summary>
+        /// Get the int representing the quarter (trimestre) of the given date
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns>int representing the quarter (trimestre)</returns>
+        public static int GetTrimestre(this DateTime date)
+        {
+            if (date.Month <= 3)
+                return 1;
+            if (date.Month <= 6)
+                return 2;
+            if (date.Month <= 9)
+                return 3;
+            return 4;
+        }
+        /// <summary>
+        /// Get the int representing the last month of the trimestre
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public static int GetLastMonthInTrimestre(this DateTime date)
+        {
+            int trimestre = date.GetTrimestre();
+            return trimestre == 1 ? 3 : trimestre == 2 ? 6 : trimestre == 3 ? 9 : 12;
+        }
+        /// <summary>
+        /// Get the int representing the first month of the trimestre
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public static int GetFirstMonthInTrimestre(this DateTime date)
+        {
+            int trimestre = date.GetTrimestre();
+            return trimestre == 1 ? 1 : trimestre == 2 ? 4 : trimestre == 3 ? 7 : 10;
+        }
+        public static int GetQuadrimestre(this DateTime date)
+        {
+            if (date.Month <= 4)
+                return 1;
+            if (date.Month <= 8)
+                return 2;
+            return 3;//if (date.Month <= 12)
+        }
+        /// <summary>
+        /// Get the int representing the last month of the trimestre
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public static int GetLastMonthInQuadrimestre(this DateTime date)
+        {
+            int quadrimestre = date.GetQuadrimestre();
+            return quadrimestre == 1 ? 4 : quadrimestre == 2 ? 8 : 12;
+        }
+        /// <summary>
+        /// Get the int representing the first month of the trimestre
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public static int GetFirstMonthInQuadrimestre(this DateTime date)
+        {
+            int quadrimestre = date.GetQuadrimestre();
+            return quadrimestre == 1 ? 1 : quadrimestre == 2 ? 5 : 9;
+        }
+        /// <summary>
         /// Ritorna l'n-ultimo giorno lavorivo del mese 
         /// </summary>
         /// <param name="dataDelMese">Data del mese di cui si vuole fare il calcolo</param>

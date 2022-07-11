@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>DavideBorghi.ItalianDotNetDateTimeUtils</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <title>DavideBorghi.ItalianDotNetDateTimeUtils</title>
     <authors>Davide Borghi</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -10,8 +10,8 @@
     <projectUrl>https://github.com/davideborghi/ItalianDotNetDateTimeUtils</projectUrl>
     <iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>
     <description>support Italian developers or any developers who need support with Italian Calendar</description>
-    <releaseNotes>Add calc of the last-n working days</releaseNotes>
-    <copyright>Copyright 2021</copyright>
+    <releaseNotes>Add support to trimestri and quadrimestri</releaseNotes>
+    <copyright>Copyright 2022</copyright>
     <tags>DateTimeUtils Italian ItalianDateTime</tags>
   </metadata>
 </package>
