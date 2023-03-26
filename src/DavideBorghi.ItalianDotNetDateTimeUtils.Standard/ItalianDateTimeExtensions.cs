@@ -8,7 +8,13 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
     {
         #region Day
 
-
+        /// <summary>
+        /// Tells if the day of a given date is week end or not.
+        /// </summary>
+        /// <param name="dateTime">The given date time.</param>
+        /// <returns>A boolean value representing if the date of the given date is week end or not.</returns>
+        public static bool IsWeekend(this DateTime dateTime)
+            => dateTime.DayOfWeek == DayOfWeek.Saturday || dateTime.DayOfWeek == DayOfWeek.Sunday;
 
         #endregion
 
@@ -33,9 +39,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <param name="startOfWeek">The start day of the week, Monday set as default.</param>
         /// <returns>Returns the date of the week end of the given date.</returns>
         public static DateTime EndOfWeek(this DateTime dateTime, DayOfWeek startOfWeek = DayOfWeek.Monday)
-        {
-            return StartOfWeek(dateTime).AddDays(6.0);
-        }
+            => StartOfWeek(dateTime).AddDays(6.0);
 
         #endregion
 
@@ -43,15 +47,11 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
 
         //TODO: docs - original name GetLastDayOfMonth
         public static DateTime LastDayOfMonth(this DateTime dateTime)
-        {
-            return new DateTime(dateTime.Year, dateTime.Month, DateTime.DaysInMonth(dateTime.Year, dateTime.Month));
-        }
+            => new DateTime(dateTime.Year, dateTime.Month, DateTime.DaysInMonth(dateTime.Year, dateTime.Month));
 
         //TODO: docs - original name GetFirstDayOfMonth
         public static DateTime FirstDayOfMonth(this DateTime dateTime)
-        {
-            return new DateTime(dateTime.Year, dateTime.Month, 1);
-        }
+            => new DateTime(dateTime.Year, dateTime.Month, 1);
 
         #endregion
 
@@ -68,15 +68,11 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
 
         //TODO: docs - original name GetFirstDayOfTrimestre
         public static DateTime FirstDayOfQuarter(this DateTime dateTime)
-        {
-            return new DateTime(dateTime.Year, dateTime.FirstMonthOfQuarter(), 1);
-        }
+            => new DateTime(dateTime.Year, dateTime.FirstMonthOfQuarter(), 1);
 
         //TODO: docs - original GetLastDayOfTrimestre
         public static DateTime LastDayOfQuarter(this DateTime dateTime)
-        {
-            return new DateTime(dateTime.Year, dateTime.LastMonthOfQuarter(), 1).LastDayOfMonth();
-        }
+            => new DateTime(dateTime.Year, dateTime.LastMonthOfQuarter(), 1).LastDayOfMonth();
 
         //TODO: docs - original name GetFirstMonthOfTrimestre
         public static int FirstMonthOfQuarter(this DateTime dateTime)
@@ -106,15 +102,11 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
 
         //TODO: docs - original name GetFirstDayOfQuadrimestre
         public static DateTime FirstDayOfFourMonthPeriod(this DateTime dateTime)
-        {
-            return new DateTime(dateTime.Year, dateTime.FirstMonthOfFourMonthPeriod(), 1);
-        }
+            => new DateTime(dateTime.Year, dateTime.FirstMonthOfFourMonthPeriod(), 1);
 
         //TODO: docs - original name GetLastDayOfQuadrimestre
         public static DateTime LastDayOfFourMonthPeriod(this DateTime dateTime)
-        {
-            return new DateTime(dateTime.Year, dateTime.LastMonthOfFourMonthPeriod(), 1).LastDayOfMonth();
-        }
+            => new DateTime(dateTime.Year, dateTime.LastMonthOfFourMonthPeriod(), 1).LastDayOfMonth();
 
         //TODO: docs - original name GetFirstMonthInQuadrimestre
         public static int FirstMonthOfFourMonthPeriod(this DateTime dateTime)
