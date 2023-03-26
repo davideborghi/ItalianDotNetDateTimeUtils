@@ -12,7 +12,6 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
 
         #endregion
 
-
         #region Week
 
         //TODO: docs
