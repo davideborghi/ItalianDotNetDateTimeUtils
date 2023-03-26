@@ -21,18 +21,6 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Tests.UnitTests
             Assert.Equal(new DateTime(2023, 3, 20), new DateTime(2023, 3, 20).StartOfWeek());
         }
 
-        [Fact]
-        public void StartOfWeek_must_be_equal_same_week_different_month_different_year()
-        {
-            Assert.Equal(new DateTime(2023, 1, 1), new DateTime(2023, 3, 21).StartOfWeek());
-        }
-
-        [Fact]
-        public void StartOfWeek_must_be_equal_same_week_same_month_different_year()
-        {
-            Assert.Equal(new DateTime(2017, 1, 1), new DateTime(2023, 1, 1).StartOfWeek());
-        }
-
         #endregion
 
         #region Negative

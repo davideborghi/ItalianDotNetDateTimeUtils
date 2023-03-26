@@ -14,14 +14,24 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
 
         #region Week
 
-        //TODO: docs
+        /// <summary>
+        /// Gets the date of the week start (Monday set as default) of the given date.
+        /// </summary>
+        /// <param name="dateTime">The given date time.</param>
+        /// <param name="startOfWeek">The start day of the week, Monday set as default.</param>
+        /// <returns>Returns the date of the week start of the given date.</returns>
         public static DateTime StartOfWeek(this DateTime dateTime, DayOfWeek startOfWeek = DayOfWeek.Monday)
         {
             int num = (7 + (dateTime.DayOfWeek - startOfWeek)) % 7;
             return dateTime.AddDays(-1 * num).Date;
         }
 
-        //TODO: docs
+        /// <summary>
+        /// Gets the date of the week end (Monday set as default week start day) of the given date.
+        /// </summary>
+        /// <param name="dateTime">The given date time.</param>
+        /// <param name="startOfWeek">The start day of the week, Monday set as default.</param>
+        /// <returns>Returns the date of the week end of the given date.</returns>
         public static DateTime EndOfWeek(this DateTime dateTime, DayOfWeek startOfWeek = DayOfWeek.Monday)
         {
             return StartOfWeek(dateTime).AddDays(6.0);
