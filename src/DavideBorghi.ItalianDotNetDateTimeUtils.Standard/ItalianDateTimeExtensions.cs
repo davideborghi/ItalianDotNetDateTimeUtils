@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -25,7 +26,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// </summary>
         /// <param name="dateTime">The given date time.</param>
         /// <param name="startOfWeek">The start day of the week, Monday set as default.</param>
-        /// <returns>Returns the date of the week start of the given date.</returns>
+        /// <returns>The date of the week start of the given date.</returns>
         public static DateTime StartOfWeek(this DateTime dateTime, DayOfWeek startOfWeek = DayOfWeek.Monday)
         {
             int num = (7 + (dateTime.DayOfWeek - startOfWeek)) % 7;
@@ -37,7 +38,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// </summary>
         /// <param name="dateTime">The given date time.</param>
         /// <param name="startOfWeek">The start day of the week, Monday set as default.</param>
-        /// <returns>Returns the date of the week end of the given date.</returns>
+        /// <returns>The date of the week end of the given date.</returns>
         public static DateTime EndOfWeek(this DateTime dateTime, DayOfWeek startOfWeek = DayOfWeek.Monday)
             => StartOfWeek(dateTime, startOfWeek).AddDays(6.0);
 
@@ -45,25 +46,50 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
 
         #region Month
 
-        //TODO: docs - original name GetLastDayOfMonth
-        public static DateTime LastDayOfMonth(this DateTime dateTime)
-            => new DateTime(dateTime.Year, dateTime.Month, DateTime.DaysInMonth(dateTime.Year, dateTime.Month));
-
-        //TODO: docs - original name GetFirstDayOfMonth
+        /// <summary>
+        /// Gets the first day of the given date month.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>The date of the first day of the month of the given date.</returns>
         public static DateTime FirstDayOfMonth(this DateTime dateTime)
             => new DateTime(dateTime.Year, dateTime.Month, 1);
+
+        /// <summary>
+        /// Gets the last day of the given date month.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>The date of the last day of the month of the given date.</returns>
+        public static DateTime LastDayOfMonth(this DateTime dateTime)
+            => new DateTime(dateTime.Year, dateTime.Month, DateTime.DaysInMonth(dateTime.Year, dateTime.Month));
 
         #endregion
 
         #region Quarter
 
-        //TODO: docs - original name GetTrimestre
+        /// <summary>
+        /// Gets the ordinal number of the date corresponding quarter.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>An integer representing the ordinal number of the date corresponding quarter.</returns>
         public static int Quarter(this DateTime dateTime) => dateTime switch
         {
             _ when (dateTime.Month <= 3) => 1,
             _ when (dateTime.Month <= 6) => 2,
             _ when (dateTime.Month <= 9) => 3,
             _ => 4
+        };
+
+        /// <summary>
+        /// Gets an enum representing the date corresponding quarter.
+        /// </summary>
+        /// <param name="dateTime">The givem date.</param>
+        /// <returns>An enum representing the ordinal number of the date corresponding quarter.</returns>
+        public static QuarterOfYear QuarterOfYear(this DateTime dateTime) => dateTime switch
+        {
+            _ when (dateTime.Month <= 3) => Enums.QuarterOfYear.First,
+            _ when (dateTime.Month <= 6) => Enums.QuarterOfYear.Second,
+            _ when (dateTime.Month <= 9) => Enums.QuarterOfYear.Third,
+            _ => Enums.QuarterOfYear.Fourth
         };
 
         //TODO: docs - original name GetFirstDayOfTrimestre
@@ -83,6 +109,15 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             _ => 10
         };
 
+        //TODO: docs - original name GetFirstMonthOfTrimestre
+        public static MonthOfYear FirstMonthOfQuarterYear(this DateTime dateTime) => dateTime.QuarterOfYear() switch
+        {
+            Enums.QuarterOfYear.First => MonthOfYear.January,
+            Enums.QuarterOfYear.Second => MonthOfYear.April,
+            Enums.QuarterOfYear.Third => MonthOfYear.July,
+            _ => MonthOfYear.October
+        };
+
         //TODO: docs - original name GetLastMonthInTrimestre
         public static int LastMonthOfQuarter(this DateTime dateTime) => dateTime.Quarter() switch
         {
@@ -92,16 +127,41 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             _ => 12
         };
 
+        //TODO: docs - original name GetLastMonthInTrimestre
+        public static MonthOfYear LastMonthOfQuarterYear(this DateTime dateTime) => dateTime.QuarterOfYear() switch
+        {
+            Enums.QuarterOfYear.First => MonthOfYear.March,
+            Enums.QuarterOfYear.Second => MonthOfYear.June,
+            Enums.QuarterOfYear.Third => MonthOfYear.September,
+            _ => MonthOfYear.December
+        };
+
         #endregion
 
         #region Four Month Period
 
-        //TODO: docs - original name GetQuadrimestre
+        /// <summary>
+        /// Gets the ordinal number of the date corresponding fourth month period.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>An integer representing the ordinal number of the date corresponding fourth month period.</returns>
         public static int FourMonthPeriod(this DateTime dateTime) => dateTime switch
         {
             _ when (dateTime.Month <= 4) => 1,
             _ when (dateTime.Month <= 8) => 2,
             _ => 3
+        };
+
+        /// <summary>
+        /// Gets an enum representing the date corresponding fourth month period.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>An enum representing the ordinal number of the date corresponding fourth month period.</returns>
+        public static FourMonthPeriodOfYear FourMonthPeriodOfYear(this DateTime dateTime) => dateTime switch
+        {
+            _ when (dateTime.Month <= 4) => Enums.FourMonthPeriodOfYear.First,
+            _ when (dateTime.Month <= 8) => Enums.FourMonthPeriodOfYear.Second,
+            _ => Enums.FourMonthPeriodOfYear.Third
         };
 
         //TODO: docs - original name GetFirstDayOfQuadrimestre
@@ -120,12 +180,28 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             _ => 9
         };
 
+        //TODO: docs - original name GetFirstMonthInQuadrimestre
+        public static MonthOfYear FirstMonthOfFourMonthPeriodOfYear(this DateTime dateTime) => dateTime.FourMonthPeriodOfYear() switch
+        {
+            Enums.FourMonthPeriodOfYear.First => MonthOfYear.January,
+            Enums.FourMonthPeriodOfYear.Second => MonthOfYear.May,
+            _ => MonthOfYear.September
+        };
+
         //TODO: docs - original name GetLastMonthInQuadrimestre
         public static int LastMonthOfFourMonthPeriod(this DateTime dateTime) => dateTime.FourMonthPeriod() switch
         {
             1 => 4,
             2 => 8,
             _ => 12
+        };
+
+        //TODO: docs - original name GetLastMonthInQuadrimestre
+        public static MonthOfYear LastMonthOfFourMonthPeriodOfYear(this DateTime dateTime) => dateTime.FourMonthPeriodOfYear() switch
+        {
+            Enums.FourMonthPeriodOfYear.First => MonthOfYear.April,
+            Enums.FourMonthPeriodOfYear.Second => MonthOfYear.August,
+            _ => MonthOfYear.December
         };
 
         #endregion
