@@ -55,7 +55,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
 
         #endregion
 
-        #region Quarter Methods
+        #region Quarter
 
         //TODO: docs - original name GetTrimestre
         public static int Quarter(this DateTime dateTime) => dateTime switch
