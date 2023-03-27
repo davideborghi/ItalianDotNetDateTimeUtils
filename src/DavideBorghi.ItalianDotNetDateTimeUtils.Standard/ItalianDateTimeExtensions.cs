@@ -47,6 +47,14 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         #region Month
 
         /// <summary>
+        /// Gets an enum representation of the given date month of year.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>An enum representation of the given date month of year.</returns>
+        public static MonthOfYear MonthOfYear(this DateTime dateTime)
+            => (MonthOfYear)dateTime.Month;
+
+        /// <summary>
         /// Gets the first day of the given date month.
         /// </summary>
         /// <param name="dateTime">The given date.</param>
@@ -112,10 +120,10 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         //TODO: docs - original name GetFirstMonthOfTrimestre
         public static MonthOfYear FirstMonthOfQuarterYear(this DateTime dateTime) => dateTime.QuarterOfYear() switch
         {
-            Enums.QuarterOfYear.First => MonthOfYear.January,
-            Enums.QuarterOfYear.Second => MonthOfYear.April,
-            Enums.QuarterOfYear.Third => MonthOfYear.July,
-            _ => MonthOfYear.October
+            Enums.QuarterOfYear.First => Enums.MonthOfYear.January,
+            Enums.QuarterOfYear.Second => Enums.MonthOfYear.April,
+            Enums.QuarterOfYear.Third => Enums.MonthOfYear.July,
+            _ => Enums.MonthOfYear.October
         };
 
         //TODO: docs - original name GetLastMonthInTrimestre
@@ -130,10 +138,10 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         //TODO: docs - original name GetLastMonthInTrimestre
         public static MonthOfYear LastMonthOfQuarterYear(this DateTime dateTime) => dateTime.QuarterOfYear() switch
         {
-            Enums.QuarterOfYear.First => MonthOfYear.March,
-            Enums.QuarterOfYear.Second => MonthOfYear.June,
-            Enums.QuarterOfYear.Third => MonthOfYear.September,
-            _ => MonthOfYear.December
+            Enums.QuarterOfYear.First => Enums.MonthOfYear.March,
+            Enums.QuarterOfYear.Second => Enums.MonthOfYear.June,
+            Enums.QuarterOfYear.Third => Enums.MonthOfYear.September,
+            _ => Enums.MonthOfYear.December
         };
 
         #endregion
@@ -183,9 +191,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         //TODO: docs - original name GetFirstMonthInQuadrimestre
         public static MonthOfYear FirstMonthOfFourMonthPeriodOfYear(this DateTime dateTime) => dateTime.FourMonthPeriodOfYear() switch
         {
-            Enums.FourMonthPeriodOfYear.First => MonthOfYear.January,
-            Enums.FourMonthPeriodOfYear.Second => MonthOfYear.May,
-            _ => MonthOfYear.September
+            Enums.FourMonthPeriodOfYear.First => Enums.MonthOfYear.January,
+            Enums.FourMonthPeriodOfYear.Second => Enums.MonthOfYear.May,
+            _ => Enums.MonthOfYear.September
         };
 
         //TODO: docs - original name GetLastMonthInQuadrimestre
@@ -199,9 +207,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         //TODO: docs - original name GetLastMonthInQuadrimestre
         public static MonthOfYear LastMonthOfFourMonthPeriodOfYear(this DateTime dateTime) => dateTime.FourMonthPeriodOfYear() switch
         {
-            Enums.FourMonthPeriodOfYear.First => MonthOfYear.April,
-            Enums.FourMonthPeriodOfYear.Second => MonthOfYear.August,
-            _ => MonthOfYear.December
+            Enums.FourMonthPeriodOfYear.First => Enums.MonthOfYear.April,
+            Enums.FourMonthPeriodOfYear.Second => Enums.MonthOfYear.August,
+            _ => Enums.MonthOfYear.December
         };
 
         #endregion
