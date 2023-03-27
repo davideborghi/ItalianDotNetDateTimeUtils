@@ -39,7 +39,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <param name="startOfWeek">The start day of the week, Monday set as default.</param>
         /// <returns>Returns the date of the week end of the given date.</returns>
         public static DateTime EndOfWeek(this DateTime dateTime, DayOfWeek startOfWeek = DayOfWeek.Monday)
-            => StartOfWeek(dateTime).AddDays(6.0);
+            => StartOfWeek(dateTime, startOfWeek).AddDays(6.0);
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         //TODO: docs - original name GetTrimestre
         public static int Quarter(this DateTime dateTime) => dateTime switch
         {
-            _ when (dateTime.Month <= 3)  => 1,
+            _ when (dateTime.Month <= 3) => 1,
             _ when (dateTime.Month <= 6) => 2,
             _ when (dateTime.Month <= 9) => 3,
             _ => 4
@@ -75,18 +75,22 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             => new DateTime(dateTime.Year, dateTime.LastMonthOfQuarter(), 1).LastDayOfMonth();
 
         //TODO: docs - original name GetFirstMonthOfTrimestre
-        public static int FirstMonthOfQuarter(this DateTime dateTime)
+        public static int FirstMonthOfQuarter(this DateTime dateTime) => dateTime.Quarter() switch
         {
-            int currentQuarter = dateTime.Quarter();
-            return currentQuarter == 1 ? 1 : currentQuarter == 2 ? 4 : currentQuarter == 3 ? 7 : 10;
-        }
-        
+            1 => 1,
+            2 => 4,
+            3 => 7,
+            _ => 10
+        };
+
         //TODO: docs - original name GetLastMonthInTrimestre
-        public static int LastMonthOfQuarter(this DateTime dateTime)
+        public static int LastMonthOfQuarter(this DateTime dateTime) => dateTime.Quarter() switch
         {
-            int quarter = dateTime.Quarter();
-            return quarter == 1 ? 3 : quarter == 2 ? 6 : quarter == 3 ? 9 : 12;
-        }
+            1 => 3,
+            2 => 6,
+            3 => 9,
+            _ => 12
+        };
 
         #endregion
 
@@ -109,18 +113,20 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             => new DateTime(dateTime.Year, dateTime.LastMonthOfFourMonthPeriod(), 1).LastDayOfMonth();
 
         //TODO: docs - original name GetFirstMonthInQuadrimestre
-        public static int FirstMonthOfFourMonthPeriod(this DateTime dateTime)
+        public static int FirstMonthOfFourMonthPeriod(this DateTime dateTime) => dateTime.FourMonthPeriod() switch
         {
-            int fourMonthPeriod = dateTime.FourMonthPeriod();
-            return fourMonthPeriod == 1 ? 1 : fourMonthPeriod == 2 ? 5 : 9;
-        }
+            1 => 1,
+            2 => 5,
+            _ => 9
+        };
 
         //TODO: docs - original name GetLastMonthInQuadrimestre
-        public static int LastMonthOfFourMonthPeriod(this DateTime dateTime)
+        public static int LastMonthOfFourMonthPeriod(this DateTime dateTime) => dateTime.FourMonthPeriod() switch
         {
-            int fourMonthPeriod = dateTime.FourMonthPeriod();
-            return fourMonthPeriod == 1 ? 4 : fourMonthPeriod == 2 ? 8 : 12;
-        }
+            1 => 4,
+            2 => 8,
+            _ => 12
+        };
 
         #endregion
     }
