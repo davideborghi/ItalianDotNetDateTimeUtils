@@ -7,7 +7,7 @@ using Xunit;
 
 namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Tests.UnitTests
 {
-    public class ItalianDateTimeDayExtensionsTests
+    public class DateTimeDayExtensionsTests
     {
         #region Positive
 

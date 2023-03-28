@@ -1,4 +1,4 @@
-﻿namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Enums
+﻿namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard.DateTimeEnums
 {
     public enum MonthOfYear
     {

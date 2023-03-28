@@ -1,11 +1,11 @@
-﻿using DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Enums;
+﻿using DavideBorghi.ItalianDotNetDateTimeUtils.Standard.DateTimeEnums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
 {
-    public static class ItalianDateTimeExtensions
+    public static class DateTimeExtensions
     {
         #region Day
 
@@ -94,10 +94,10 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <returns>An enum representing the quarter related to the given date.</returns>
         public static QuarterOfYear QuarterOfYear(this DateTime dateTime) => dateTime switch
         {
-            _ when (dateTime.Month <= 3) => Enums.QuarterOfYear.First,
-            _ when (dateTime.Month <= 6) => Enums.QuarterOfYear.Second,
-            _ when (dateTime.Month <= 9) => Enums.QuarterOfYear.Third,
-            _ => Enums.QuarterOfYear.Fourth
+            _ when (dateTime.Month <= 3) => DateTimeEnums.QuarterOfYear.First,
+            _ when (dateTime.Month <= 6) => DateTimeEnums.QuarterOfYear.Second,
+            _ when (dateTime.Month <= 9) => DateTimeEnums.QuarterOfYear.Third,
+            _ => DateTimeEnums.QuarterOfYear.Fourth
         };
 
         /// <summary>
@@ -136,10 +136,10 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <returns>An enum representing the first month of the date corresponding quarter.</returns>
         public static MonthOfYear FirstMonthOfQuarterYear(this DateTime dateTime) => dateTime.QuarterOfYear() switch
         {
-            Enums.QuarterOfYear.First => Enums.MonthOfYear.January,
-            Enums.QuarterOfYear.Second => Enums.MonthOfYear.April,
-            Enums.QuarterOfYear.Third => Enums.MonthOfYear.July,
-            _ => Enums.MonthOfYear.October
+            DateTimeEnums.QuarterOfYear.First => DateTimeEnums.MonthOfYear.January,
+            DateTimeEnums.QuarterOfYear.Second => DateTimeEnums.MonthOfYear.April,
+            DateTimeEnums.QuarterOfYear.Third => DateTimeEnums.MonthOfYear.July,
+            _ => DateTimeEnums.MonthOfYear.October
         };
 
 
@@ -163,10 +163,10 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <returns>An enum representing the last month of the date corresponding quarter.</returns>
         public static MonthOfYear LastMonthOfQuarterYear(this DateTime dateTime) => dateTime.QuarterOfYear() switch
         {
-            Enums.QuarterOfYear.First => Enums.MonthOfYear.March,
-            Enums.QuarterOfYear.Second => Enums.MonthOfYear.June,
-            Enums.QuarterOfYear.Third => Enums.MonthOfYear.September,
-            _ => Enums.MonthOfYear.December
+            DateTimeEnums.QuarterOfYear.First => DateTimeEnums.MonthOfYear.March,
+            DateTimeEnums.QuarterOfYear.Second => DateTimeEnums.MonthOfYear.June,
+            DateTimeEnums.QuarterOfYear.Third => DateTimeEnums.MonthOfYear.September,
+            _ => DateTimeEnums.MonthOfYear.December
         };
 
         #endregion
@@ -192,9 +192,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <returns>An enum representing the ordinal number of the date corresponding fourth month period.</returns>
         public static FourMonthPeriodOfYear FourMonthPeriodOfYear(this DateTime dateTime) => dateTime switch
         {
-            _ when (dateTime.Month <= 4) => Enums.FourMonthPeriodOfYear.First,
-            _ when (dateTime.Month <= 8) => Enums.FourMonthPeriodOfYear.Second,
-            _ => Enums.FourMonthPeriodOfYear.Third
+            _ when (dateTime.Month <= 4) => DateTimeEnums.FourMonthPeriodOfYear.First,
+            _ when (dateTime.Month <= 8) => DateTimeEnums.FourMonthPeriodOfYear.Second,
+            _ => DateTimeEnums.FourMonthPeriodOfYear.Third
         };
 
         /// <summary>
@@ -232,9 +232,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <returns>An enum representing the first month of the date corresponding four month period.</returns>
         public static MonthOfYear FirstMonthOfFourMonthPeriodOfYear(this DateTime dateTime) => dateTime.FourMonthPeriodOfYear() switch
         {
-            Enums.FourMonthPeriodOfYear.First => Enums.MonthOfYear.January,
-            Enums.FourMonthPeriodOfYear.Second => Enums.MonthOfYear.May,
-            _ => Enums.MonthOfYear.September
+            DateTimeEnums.FourMonthPeriodOfYear.First => DateTimeEnums.MonthOfYear.January,
+            DateTimeEnums.FourMonthPeriodOfYear.Second => DateTimeEnums.MonthOfYear.May,
+            _ => DateTimeEnums.MonthOfYear.September
         };
 
         /// <summary>
@@ -256,9 +256,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <returns>An enum representing the last month of the date corresponding four month period.</returns>
         public static MonthOfYear LastMonthOfFourMonthPeriodOfYear(this DateTime dateTime) => dateTime.FourMonthPeriodOfYear() switch
         {
-            Enums.FourMonthPeriodOfYear.First => Enums.MonthOfYear.April,
-            Enums.FourMonthPeriodOfYear.Second => Enums.MonthOfYear.August,
-            _ => Enums.MonthOfYear.December
+            DateTimeEnums.FourMonthPeriodOfYear.First => DateTimeEnums.MonthOfYear.April,
+            DateTimeEnums.FourMonthPeriodOfYear.Second => DateTimeEnums.MonthOfYear.August,
+            _ => DateTimeEnums.MonthOfYear.December
         };
 
         #endregion
