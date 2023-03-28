@@ -90,8 +90,8 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <summary>
         /// Gets an enum representing the date corresponding quarter.
         /// </summary>
-        /// <param name="dateTime">The givem date.</param>
-        /// <returns>An enum representing the ordinal number of the date corresponding quarter.</returns>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>An enum representing the quarter related to the given date.</returns>
         public static QuarterOfYear QuarterOfYear(this DateTime dateTime) => dateTime switch
         {
             _ when (dateTime.Month <= 3) => Enums.QuarterOfYear.First,
@@ -100,15 +100,27 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             _ => Enums.QuarterOfYear.Fourth
         };
 
-        //TODO: docs - original name GetFirstDayOfTrimestre
+        /// <summary>
+        /// Gets the first day of the date corresponding quarter.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>A date time representing the first day of the date corresponding quarter.</returns>
         public static DateTime FirstDayOfQuarter(this DateTime dateTime)
             => new DateTime(dateTime.Year, dateTime.FirstMonthOfQuarter(), 1);
 
-        //TODO: docs - original GetLastDayOfTrimestre
+        /// <summary>
+        /// Gets the last day of the date corresponding quarter.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>A date time representing the last day of the date corresponding quarter.</returns>
         public static DateTime LastDayOfQuarter(this DateTime dateTime)
             => new DateTime(dateTime.Year, dateTime.LastMonthOfQuarter(), 1).LastDayOfMonth();
 
-        //TODO: docs - original name GetFirstMonthOfTrimestre
+        /// <summary>
+        /// Gets the ordinal number of the first month of the date corresponding quarter.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>An integer representing the ordinal number of the first month of the date corresponding quarter.</returns>
         public static int FirstMonthOfQuarter(this DateTime dateTime) => dateTime.Quarter() switch
         {
             1 => 1,
@@ -117,7 +129,11 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             _ => 10
         };
 
-        //TODO: docs - original name GetFirstMonthOfTrimestre
+        /// <summary>
+        /// Gets an enum representing the first month of the date corresponding quarter.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>An enum representing the first month of the date corresponding quarter.</returns>
         public static MonthOfYear FirstMonthOfQuarterYear(this DateTime dateTime) => dateTime.QuarterOfYear() switch
         {
             Enums.QuarterOfYear.First => Enums.MonthOfYear.January,
@@ -126,7 +142,12 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             _ => Enums.MonthOfYear.October
         };
 
-        //TODO: docs - original name GetLastMonthInTrimestre
+
+        /// <summary>
+        /// Gets the ordinal number of the last month of the date corresponding quarter.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>An integer representing the ordinal number of the last month of the date corresponding quarter.</returns>
         public static int LastMonthOfQuarter(this DateTime dateTime) => dateTime.Quarter() switch
         {
             1 => 3,
@@ -135,7 +156,11 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             _ => 12
         };
 
-        //TODO: docs - original name GetLastMonthInTrimestre
+        /// <summary>
+        /// Gets an enum representing the last month of the date corresponding quarter.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>An enum representing the last month of the date corresponding quarter.</returns>
         public static MonthOfYear LastMonthOfQuarterYear(this DateTime dateTime) => dateTime.QuarterOfYear() switch
         {
             Enums.QuarterOfYear.First => Enums.MonthOfYear.March,
