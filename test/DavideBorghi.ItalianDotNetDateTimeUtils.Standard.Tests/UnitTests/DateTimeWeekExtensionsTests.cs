@@ -7,46 +7,66 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Tests.UnitTests
 {
     public class DateTimeWeekExtensionsTests
     {
-        #region Positive
+        #region StartOfWeek
 
-        [Fact]
-        public void StartOfWeek_must_be_equal()
+        [Theory]
+        [InlineData("2023/03/20", "2023/03/20")]
+        [InlineData("2023/03/20", "2023/03/21")]
+        public void StartOfWeek_MustBeEqual(DateTime firstDateTime, DateTime secondDateTime)
         {
-            Assert.Equal(new DateTime(2023, 3, 20), new DateTime(2023, 3, 21).StartOfWeek());
+            Assert.Equal(firstDateTime.StartOfWeek(), secondDateTime.StartOfWeek());
         }
 
-        [Fact]
-        public void StartOfWeek_must_be_equal_same_day_same_month_same_year()
+        [Theory]
+        [InlineData("2023/03/20", "2023/03/27")]
+        [InlineData("2022/03/20", "2023/03/20")]
+        [InlineData("2022/03/01", "2023/04/01")]
+        [InlineData("2023/03/01", "2022/04/01")]
+        public void StartOfWeek_MustBeDifferent(DateTime firstDateTime, DateTime secondDateTime)
         {
-            Assert.Equal(new DateTime(2023, 3, 20), new DateTime(2023, 3, 20).StartOfWeek());
+            Assert.NotEqual(firstDateTime.StartOfWeek(), secondDateTime.StartOfWeek());
+        }
+
+        [Theory]
+        [InlineData("2023/03/20", "2023/03/27")]
+        [InlineData("2022/03/20", "2023/03/20")]
+        [InlineData("2022/03/01", "2023/04/01")]
+        [InlineData("2023/03/01", "2022/04/01")]
+        public void StartOfWeek_WithSameWeekStartDay_MustBeDifferent(DateTime firstDateTime, DateTime secondDateTime)
+        {
+            Assert.NotEqual(firstDateTime.StartOfWeek(DayOfWeek.Sunday), secondDateTime.StartOfWeek(DayOfWeek.Sunday));
+        }
+
+        [Theory]
+        [InlineData("2023/03/20", "2023/03/27")]
+        [InlineData("2022/03/20", "2023/03/20")]
+        [InlineData("2022/03/01", "2023/04/01")]
+        [InlineData("2023/03/01", "2022/04/01")]
+        public void StartOfWeek_WithDifferentWeekStartDay_MustBeDifferent(DateTime firstDateTime, DateTime secondDateTime)
+        {
+            Assert.NotEqual(firstDateTime.StartOfWeek(DayOfWeek.Sunday), secondDateTime.StartOfWeek(DayOfWeek.Tuesday));
         }
 
         #endregion
 
-        #region Negative
+        #region EndOfWeek
 
-        [Fact]
-        public void StartOfWeek_must_not_be_equal_diffent_day_same_month_same_year()
+        [Theory]
+        [InlineData("2023/03/20", "2023/03/20")]
+        [InlineData("2023/03/20", "2023/03/21")]
+        public void EndOfWeek_MustBeEqual(DateTime firstDateTime, DateTime secondDateTime)
         {
-            Assert.NotEqual(new DateTime(2023, 3, 20), new DateTime(2023, 3, 27).StartOfWeek());
+            Assert.Equal(firstDateTime.EndOfWeek(), secondDateTime.EndOfWeek());
         }
 
-        [Fact]
-        public void StartOfWeek_must_not_be_equal_same_day_same_month_different_year()
+        [Theory]
+        [InlineData("2023/03/20", "2023/03/27")]
+        [InlineData("2022/03/20", "2023/03/20")]
+        [InlineData("2023/03/01", "2023/04/01")]
+        [InlineData("2022/03/01", "2023/04/01")]
+        public void EndOfWeek_MustBeDifferent(DateTime firstDateTime, DateTime secondDateTime)
         {
-            Assert.NotEqual(new DateTime(2022, 3, 20), new DateTime(2023, 3, 20).StartOfWeek());
-        }
-
-        [Fact]
-        public void StartOfWeek_must_not_be_equal_different_month_same_year()
-        {
-            Assert.NotEqual(new DateTime(2023, 3, 1), new DateTime(2023, 4, 1).StartOfWeek());
-        }
-
-        [Fact]
-        public void StartOfWeek_must_not_be_equal_different_month_different_year()
-        {
-            Assert.NotEqual(new DateTime(2022, 3, 1), new DateTime(2023, 3, 1).StartOfWeek());
+            Assert.NotEqual(firstDateTime.EndOfWeek(), secondDateTime.EndOfWeek());
         }
 
         #endregion
