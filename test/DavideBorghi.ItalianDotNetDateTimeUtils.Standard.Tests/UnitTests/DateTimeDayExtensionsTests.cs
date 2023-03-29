@@ -7,7 +7,7 @@ using Xunit;
 
 namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Tests.UnitTests
 {
-    public class DateTimeDayExtensionsTests
+    public sealed class DateTimeDayExtensionsTests
     {
         #region IsWeekend
 
