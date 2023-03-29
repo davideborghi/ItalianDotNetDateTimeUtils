@@ -45,6 +45,22 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             return new DateTime(year, month, day);
         }
 
+        public static DateTime GetEasterOfYear(int year)
+        {
+            int num = year % 19;
+            int num2 = year / 100;
+            int num3 = (num2 - num2 / 4 - (8 * num2 + 13) / 25 + 19 * num + 15) % 30;
+            int num4 = num3 - num3 / 28 * (1 - num3 / 28 * (29 / (num3 + 1)) * ((21 - num) / 11));
+            int num5 = num4 - (year + year / 4 + num4 + 2 - num2 + num2 / 4) % 7 + 28;
+            int num6 = 3;
+            if (num5 > 31)
+            {
+                num6++;
+                num5 -= 31;
+            }
+            return new DateTime(year, num6, num5);
+        }
+
         #endregion
 
         #region Private Methods
