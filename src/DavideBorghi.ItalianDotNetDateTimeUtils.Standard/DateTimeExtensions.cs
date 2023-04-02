@@ -140,7 +140,6 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             _ => DateTimeEnums.MonthOfYear.October
         };
 
-
         /// <summary>
         /// Gets the ordinal number of the last month of the date corresponding quarter.
         /// </summary>

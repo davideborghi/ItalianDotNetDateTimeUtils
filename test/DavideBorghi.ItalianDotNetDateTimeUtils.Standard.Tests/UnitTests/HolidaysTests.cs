@@ -20,7 +20,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Tests.UnitTests
         [InlineData(2049, "2049/04/18")]
         public void Check_If_EasterOfYear_Is_AsExpected(int year, DateTime expectedEasterDateTime)
         {
-            DateTime calculatedEasterOfYear = ItalianDateTimeUtils.GetEasterOfYear(year);
+            DateTime calculatedEasterOfYear = ItalianDateTimeUtils.GetYearlyEaster(year);
             Assert.Equal(calculatedEasterOfYear, expectedEasterDateTime);
         }
 

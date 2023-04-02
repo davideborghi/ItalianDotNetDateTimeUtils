@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
@@ -8,9 +9,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
     {
         #region Private Fields
 
-        private static DateTime[] _holidays;
-
-        //TODO: si potrebbe trasformare in un dizionario ed offrire un metodo per recuperarle, oppure tipo Enum
+        /// <summary>
+        /// Represents an array of strings containing all Italian National Holidays, formatted as ddMM, with the exception of the 17/03/2011, here formatted as 17032011
+        /// </summary>
         private static readonly string[] _nationalHolidays =
         {
             "0101",
@@ -26,18 +27,31 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             "17032011"
         };
 
+        /// <summary>
+        /// Represents a list of DateTime holidays.
+        /// </summary>
+        private static List<DateTime>? _holidays;
+
         #endregion
 
         #region Public Fields
 
-        public static List<string>? LocalHolidays;
+        /// <summary>
+        /// Represents a list of local holidays (such as "Santo Patrono") that must be in ddMM format.
+        /// </summary>
+        public static IEnumerable<string>? LocalHolidays;
 
         #endregion
 
         #region Public Methods
 
-        //TODO: docs - original name GetGiornoOfYearFromString
-        public static DateTime GetDayOfYear(string dateAsString, int year)
+        /// <summary>
+        /// Gets the date time from a date formatted as string plus the year as an integer.
+        /// </summary>
+        /// <param name="dateAsString">Date formatted as ddMM</param>
+        /// <param name="year">An integer value representing the year.</param>
+        /// <returns>The day in DateTime format.</returns>
+        public static DateTime GetDateTimeFromDateAsStringAndYear(string dateAsString, int year)
         {
             int day = int.Parse(dateAsString[..2]);
             int month = int.Parse(dateAsString.Substring(2, 2));
@@ -45,7 +59,12 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             return new DateTime(year, month, day);
         }
 
-        public static DateTime GetEasterOfYear(int year)
+        /// <summary>
+        /// Gets the date time of Easter Sunday given the year.
+        /// </summary>
+        /// <param name="year">An integer value representing the year.</param>
+        /// <returns>The date time representing the Easter Sunday.</returns>
+        public static DateTime GetYearlyEaster(int year)
         {
             int num = year % 19;
             int num2 = year / 100;
@@ -61,11 +80,85 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             return new DateTime(year, num6, num5);
         }
 
+        /// <summary>
+        /// Gets an array of years between two dates.
+        /// </summary>
+        /// <param name="startDate">The starting date.</param>
+        /// <param name="endDate">The ending date.</param>
+        /// <returns>An array of integers containing the years between the two given dates.</returns>
+        /// <exception cref="System.ArgumentException">Thrown when provided starting date is bigger then given ending date.</exception>
+        public static int[] GetYearsBetweenDates(DateTime startDate, DateTime endDate)
+        {
+            if (startDate > endDate)
+                throw new ArgumentException($"{nameof(startDate)} cannot be bigger than {nameof(endDate)}");
+
+            List<int> years = new List<int>();
+            int startYear = startDate.Year;
+
+            while (startYear <= endDate.Year)
+                years.Add(startYear++);
+            return years.ToArray();
+        }
+
+        /// <summary>
+        /// Tells if a particular date is an Italian (national or local) holiday or not.
+        /// </summary>
+        /// <param name="dateTime">The given date.</param>
+        /// <returns>A boolean value representing whether the given date is an Italian (national or local) holiday or not.</returns>
+        public static bool IsHoliday(this DateTime dateTime)
+        {
+            _holidays = GetYearlyHolidays(dateTime.Year);
+            return dateTime.IsWeekend()|| _holidays.Contains(dateTime) || GetYearlyEaster(dateTime.Year).AddDays(1.0) == dateTime;
+        }
+
+        /// <summary>
+        /// Gets the number of working days between two given dates.
+        /// </summary>
+        /// <param name="startDate">The starting date./param>
+        /// <param name="endDate">The ending date.</param>
+        /// <returns>The number of working dates between two dates.</returns>
+        /// <exception cref="System.ArgumentException">Thrown when provided starting date is bigger then given ending date.</exception>
+        public static int HowManyWorkingDaysBetweenDates(DateTime startDate, DateTime endDate)
+        {
+            if (startDate > endDate)
+                throw new ArgumentException($"{nameof(startDate)} cannot be bigger than {nameof(endDate)}");
+
+            int workingDaysCount = 0;
+            DateTime currentDateTime = startDate;
+            int[] years = GetYearsBetweenDates(startDate, endDate);
+
+            foreach (int year in years)
+                GetYearlyHolidays(year);
+
+            while (currentDateTime <= endDate)
+            {
+                if (!currentDateTime.IsHoliday())
+                    workingDaysCount++;
+                currentDateTime = currentDateTime.AddDays(1.0);
+            }
+
+            return workingDaysCount;
+        }
+
         #endregion
 
         #region Private Methods
 
-
+        /// <summary>
+        /// Gets a DateTime list of yearly Italian (national or local) holidays.
+        /// </summary>
+        /// <param name="year">The given year.</param>
+        /// <returns>A list of yearly Italian (national or local) holidays.</returns>
+        private static List<DateTime> GetYearlyHolidays(int year)
+        {
+            if (_holidays is null || !_holidays.Any())
+                _holidays = new List<DateTime>();
+            _nationalHolidays.ToList()
+                .ForEach(nh => _holidays.Add(GetDateTimeFromDateAsStringAndYear(nh, year)));
+            LocalHolidays.ToList()
+                .ForEach(lh => _holidays.Add(GetDateTimeFromDateAsStringAndYear(lh, year)));
+            return _holidays;
+        }
 
         #endregion
     }
