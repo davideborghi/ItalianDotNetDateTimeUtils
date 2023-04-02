@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
 {
@@ -10,7 +9,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         #region Private Fields
 
         /// <summary>
-        /// Represents an array of strings containing all Italian National Holidays, formatted as ddMM, with the exception of the 17/03/2011, here formatted as 17032011
+        /// Represents an array of strings containing all Italian national holidays, formatted as ddMM 
+        /// with the exception of the 17/03/2011 (Italy's 150th Anniversary of the Unification of Italy), 
+        /// here formatted as 17032011
         /// </summary>
         private static readonly string[] _nationalHolidays =
         {
@@ -37,7 +38,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         #region Public Fields
 
         /// <summary>
-        /// Represents a list of local holidays (such as "Santo Patrono") that must be in ddMM format.
+        /// Represents a list of local holidays (such as "Saint Patron") that must be in ddMM format.
         /// </summary>
         public static IEnumerable<string>? LocalHolidays;
 
