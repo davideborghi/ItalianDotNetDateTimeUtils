@@ -10,8 +10,8 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
 
         /// <summary>
         /// Represents an array of strings containing all Italian national holidays, formatted as ddMM 
-        /// with the exception of the 17/03/2011 (Italy's 150th Anniversary of the Unification of Italy), 
-        /// here formatted as 17032011
+        /// with the exception of the 17/03/1911, 17/03/1961, 17/03/2011 (Anniversary of the Unification of Italy, which is celebrated every 50 years)
+        /// here formatted as 17031911, 17031961 and 17032011
         /// </summary>
         private static readonly string[] _nationalHolidays =
         {
@@ -25,6 +25,8 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             "0812",
             "2512",
             "2612",
+            "17031911",
+            "17031961",
             "17032011"
         };
 
