@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 
 namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Tests.UnitTests
 {
@@ -24,7 +19,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Tests.UnitTests
         }
 
         [Fact]
-        public void IsWeekDayNotAWeekendDay() 
+        public void IsWeekDayNotAWeekendDay()
         {
             Assert.False(new DateTime(2023, 3, 24).IsWeekend());
         }

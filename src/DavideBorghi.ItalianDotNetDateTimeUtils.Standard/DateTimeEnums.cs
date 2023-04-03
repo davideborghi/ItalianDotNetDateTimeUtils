@@ -14,7 +14,7 @@
         October = 10,
         November = 11,
         December = 12
-    } 
+    }
 
     public enum QuarterOfYear
     {

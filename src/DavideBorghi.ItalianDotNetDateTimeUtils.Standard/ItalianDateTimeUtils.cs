@@ -111,7 +111,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         public static bool IsHoliday(this DateTime dateTime)
         {
             _holidays = GetYearlyHolidays(dateTime.Year);
-            return dateTime.IsWeekend()|| _holidays.Contains(dateTime) || GetYearlyEaster(dateTime.Year).AddDays(1.0) == dateTime;
+            return dateTime.IsWeekend() || _holidays.Contains(dateTime) || GetYearlyEaster(dateTime.Year).AddDays(1.0) == dateTime;
         }
 
         /// <summary>
