@@ -128,10 +128,11 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
 
             int workingDaysCount = 0;
             DateTime currentDateTime = startDate;
-            int[] years = GetYearsBetweenDates(startDate, endDate);
 
-            foreach (int year in years)
-                GetYearlyHolidays(year);
+            //UNDONE: performance hack to solve
+            //int[] years = GetYearsBetweenDates(startDate, endDate);
+            //foreach (int year in years)
+            //    GetYearlyHolidays(year);
 
             while (currentDateTime <= endDate)
             {
@@ -154,13 +155,21 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <returns>A list of yearly Italian (national or local) holidays.</returns>
         private static List<DateTime> GetYearlyHolidays(int year)
         {
-            if (_holidays is null || !_holidays.Any())
-                _holidays = new List<DateTime>();
+            //TODO: performance hack to solve
+            //if (_holidays is null || !_holidays.Any())
+            //    _holidays = new List<DateTime>();
+            //_nationalHolidays.ToList()
+            //    .ForEach(nh => _holidays.Add(GetDateTimeFromDateAsStringAndYear(nh, year)));
+            //LocalHolidays?.ToList()
+            //    .ForEach(lh => _holidays.Add(GetDateTimeFromDateAsStringAndYear(lh, year)));
+            //return _holidays;
+
+            var holidays = new List<DateTime>();
             _nationalHolidays.ToList()
-                .ForEach(nh => _holidays.Add(GetDateTimeFromDateAsStringAndYear(nh, year)));
+                .ForEach(nh => holidays.Add(GetDateTimeFromDateAsStringAndYear(nh, year)));
             LocalHolidays?.ToList()
-                .ForEach(lh => _holidays.Add(GetDateTimeFromDateAsStringAndYear(lh, year)));
-            return _holidays;
+                .ForEach(lh => holidays.Add(GetDateTimeFromDateAsStringAndYear(lh, year)));
+            return holidays;
         }
 
         #endregion
