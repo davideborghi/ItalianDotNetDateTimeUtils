@@ -158,7 +158,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
                 _holidays = new List<DateTime>();
             _nationalHolidays.ToList()
                 .ForEach(nh => _holidays.Add(GetDateTimeFromDateAsStringAndYear(nh, year)));
-            LocalHolidays.ToList()
+            LocalHolidays?.ToList()
                 .ForEach(lh => _holidays.Add(GetDateTimeFromDateAsStringAndYear(lh, year)));
             return _holidays;
         }
