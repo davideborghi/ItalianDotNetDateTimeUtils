@@ -111,15 +111,15 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         public static bool IsHoliday(this DateTime dateTime)
         {
             _holidays = GetYearlyHolidays(dateTime.Year);
-            return dateTime.IsWeekend() || _holidays.Contains(dateTime) || GetYearlyEaster(dateTime.Year).AddDays(1.0) == dateTime;
+            return _holidays.Contains(dateTime) || GetYearlyEaster(dateTime.Year).AddDays(1.0) == dateTime;
         }
 
         /// <summary>
-        /// Gets the number of working days between two given dates.
+        /// Gets the number of working days between two given dates, removing weekends and Italian national and local holidays
         /// </summary>
         /// <param name="startDate">The starting date./param>
         /// <param name="endDate">The ending date.</param>
-        /// <returns>The number of working dates between two dates.</returns>
+        /// <returns>The number of Italian working days between two dates.</returns>
         /// <exception cref="System.ArgumentException">Thrown when provided starting date is bigger then given ending date.</exception>
         public static int HowManyWorkingDaysBetweenDates(DateTime startDate, DateTime endDate)
         {
@@ -135,7 +135,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
 
             while (currentDateTime <= endDate)
             {
-                if (!currentDateTime.IsHoliday())
+                if (!currentDateTime.IsWeekend() && !currentDateTime.IsHoliday())
                     workingDaysCount++;
                 currentDateTime = currentDateTime.AddDays(1.0);
             }

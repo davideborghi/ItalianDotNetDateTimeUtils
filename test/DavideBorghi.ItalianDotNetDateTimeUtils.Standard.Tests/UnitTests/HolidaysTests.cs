@@ -24,9 +24,28 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Tests.UnitTests
         #region Italian Holiday
 
         [Fact]
-        public void IsXmasHoliday()
+        public void XmasIsHoliday()
         {
             Assert.True(ItalianDateTimeUtils.IsHoliday(new DateTime(2023, 12, 25)));
+        }
+
+        [Theory]
+        [InlineData("1911/03/17")]
+        [InlineData("1961/03/17")]
+        [InlineData("2011/03/17")]
+        [InlineData("2023/01/01")]
+        [InlineData("2023/01/06")]
+        [InlineData("2024/04/25")]
+        [InlineData("2024/05/01")]
+        [InlineData("2024/06/02")]
+        [InlineData("2024/08/15")]
+        [InlineData("2024/11/01")]
+        [InlineData("2024/12/08")]
+        [InlineData("2024/12/25")]
+        [InlineData("2024/12/26")]
+        public void Check_If_GivenNationalHolidayDateTime_IsHoliday(DateTime givenDate)
+        {
+            Assert.True(ItalianDateTimeUtils.IsHoliday(givenDate));
         }
 
         #endregion
