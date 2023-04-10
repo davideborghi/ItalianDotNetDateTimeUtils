@@ -42,7 +42,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <summary>
         /// Represents a list of local holidays (such as "Saint Patron") that must be in ddMM format.
         /// </summary>
-        public static IEnumerable<string>? LocalHolidays;
+        public static IEnumerable<string>? LocalHolidays { get; set; }
 
         #endregion
 

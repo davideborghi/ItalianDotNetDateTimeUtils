@@ -4,6 +4,12 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Tests.UnitTests
 {
     public sealed class HolidaysTests
     {
+        #region Private Fields
+
+        public static IEnumerable<string?> LocalHolidays => new List<string?> { "2406" };
+
+        #endregion
+
         #region Easter
 
         [Theory]
@@ -46,6 +52,22 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard.Tests.UnitTests
         public void Check_If_GivenNationalHolidayDateTime_IsHoliday(DateTime givenDate)
         {
             Assert.True(ItalianDateTimeUtils.IsHoliday(givenDate));
+        }
+
+        [Theory]
+        [InlineData("2023/06/24")]
+        public void Check_If_GivenLocalHolidayDateTime_IsHoliday(DateTime givenDate)
+        {
+            ItalianDateTimeUtils.LocalHolidays = LocalHolidays;
+            Assert.True(ItalianDateTimeUtils.IsHoliday(givenDate));
+        }
+
+        [Theory]
+        [InlineData("2023/11/04")]
+        public void Check_If_GivenLocalHolidayDateTime_IsNotHoliday(DateTime givenDate)
+        {
+            ItalianDateTimeUtils.LocalHolidays = LocalHolidays;
+            Assert.False(ItalianDateTimeUtils.IsHoliday(givenDate));
         }
 
         #endregion
