@@ -129,11 +129,12 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             int workingDaysCount = 0;
             DateTime currentDateTime = startDate;
 
-            //UNDONE: performance hack to solve
+            //UNDONE: comparison code to delete or update
             //int[] years = GetYearsBetweenDates(startDate, endDate);
             //foreach (int year in years)
             //    GetYearlyHolidays(year);
 
+            //UNDONE: performance hack to solve: find a way to avoid continuous computational iteration when checking if a day is a holiday
             while (currentDateTime <= endDate)
             {
                 if (!currentDateTime.IsWeekend() && !currentDateTime.IsHoliday())
@@ -155,7 +156,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <returns>A list of yearly Italian (national or local) holidays.</returns>
         private static List<DateTime> GetYearlyHolidays(int year)
         {
-            //TODO: performance hack to solve
+            //UNDONE: comparison code to delete or update
             //if (_holidays is null || !_holidays.Any())
             //    _holidays = new List<DateTime>();
             //_nationalHolidays.ToList()
