@@ -79,9 +79,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <returns>An integer representing the ordinal number of the date corresponding quarter.</returns>
         public static int Quarter(this DateTime dateTime) => dateTime switch
         {
-            _ when (dateTime.Month <= 3) => 1,
-            _ when (dateTime.Month <= 6) => 2,
-            _ when (dateTime.Month <= 9) => 3,
+            _ when dateTime.Month <= 3 => 1,
+            _ when dateTime.Month <= 6 => 2,
+            _ when dateTime.Month <= 9 => 3,
             _ => 4
         };
 
@@ -92,9 +92,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <returns>An enum representing the quarter related to the given date.</returns>
         public static QuarterOfYear QuarterOfYear(this DateTime dateTime) => dateTime switch
         {
-            _ when (dateTime.Month <= 3) => DateTimeEnums.QuarterOfYear.First,
-            _ when (dateTime.Month <= 6) => DateTimeEnums.QuarterOfYear.Second,
-            _ when (dateTime.Month <= 9) => DateTimeEnums.QuarterOfYear.Third,
+            _ when dateTime.Month <= 3 => DateTimeEnums.QuarterOfYear.First,
+            _ when dateTime.Month <= 6 => DateTimeEnums.QuarterOfYear.Second,
+            _ when dateTime.Month <= 9 => DateTimeEnums.QuarterOfYear.Third,
             _ => DateTimeEnums.QuarterOfYear.Fourth
         };
 
@@ -177,8 +177,8 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <returns>An integer representing the ordinal number of the date corresponding fourth month period.</returns>
         public static int FourMonthPeriod(this DateTime dateTime) => dateTime switch
         {
-            _ when (dateTime.Month <= 4) => 1,
-            _ when (dateTime.Month <= 8) => 2,
+            _ when dateTime.Month <= 4 => 1,
+            _ when dateTime.Month <= 8 => 2,
             _ => 3
         };
 
@@ -189,8 +189,8 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <returns>An enum representing the ordinal number of the date corresponding fourth month period.</returns>
         public static FourMonthPeriodOfYear FourMonthPeriodOfYear(this DateTime dateTime) => dateTime switch
         {
-            _ when (dateTime.Month <= 4) => DateTimeEnums.FourMonthPeriodOfYear.First,
-            _ when (dateTime.Month <= 8) => DateTimeEnums.FourMonthPeriodOfYear.Second,
+            _ when dateTime.Month <= 4 => DateTimeEnums.FourMonthPeriodOfYear.First,
+            _ when dateTime.Month <= 8 => DateTimeEnums.FourMonthPeriodOfYear.Second,
             _ => DateTimeEnums.FourMonthPeriodOfYear.Third
         };
 
