@@ -73,14 +73,14 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             int num2 = year / 100;
             int num3 = (num2 - num2 / 4 - (8 * num2 + 13) / 25 + 19 * num + 15) % 30;
             int num4 = num3 - num3 / 28 * (1 - num3 / 28 * (29 / (num3 + 1)) * ((21 - num) / 11));
-            int num5 = num4 - (year + year / 4 + num4 + 2 - num2 + num2 / 4) % 7 + 28;
-            int num6 = 3;
-            if (num5 > 31)
+            int day = num4 - (year + year / 4 + num4 + 2 - num2 + num2 / 4) % 7 + 28;
+            int month = 3;
+            if (day > 31)
             {
-                num6++;
-                num5 -= 31;
+                month++;
+                day -= 31;
             }
-            return new DateTime(year, num6, num5);
+            return new DateTime(year, month, day);
         }
 
         /// <summary>
@@ -92,8 +92,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <exception cref="System.ArgumentException">Thrown when provided starting date is bigger then given ending date.</exception>
         public static int[] GetYearsBetweenDates(DateTime startDate, DateTime endDate)
         {
-            if (startDate > endDate)
+            if (startDate > endDate) {
                 throw new ArgumentException($"{nameof(startDate)} cannot be bigger than {nameof(endDate)}");
+            }
 
             List<int> years = new List<int>();
             int startYear = startDate.Year;
@@ -123,8 +124,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <exception cref="System.ArgumentException">Thrown when provided starting date is bigger then given ending date.</exception>
         public static int HowManyWorkingDaysBetweenDates(DateTime startDate, DateTime endDate)
         {
-            if (startDate > endDate)
+            if (startDate > endDate) {
                 throw new ArgumentException($"{nameof(startDate)} cannot be bigger than {nameof(endDate)}");
+            }
 
             int workingDaysCount = 0;
             DateTime currentDateTime = startDate;
@@ -137,8 +139,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
             //UNDONE: performance hack to solve: find a way to avoid continuous computational iteration when checking if a day is a holiday
             while (currentDateTime <= endDate)
             {
-                if (!currentDateTime.IsWeekend() && !currentDateTime.IsHoliday())
+                if (!currentDateTime.IsWeekend() && !currentDateTime.IsHoliday()){
                     workingDaysCount++;
+                }
                 currentDateTime = currentDateTime.AddDays(1.0);
             }
 
