@@ -66,6 +66,32 @@ public sealed class ItalianHolidaysUtilsTests
         ItalianHolidaysUtils.IsLocalHoliday = IncludeJune24AsLocalHoliday;
         Assert.False(ItalianHolidaysUtils.IsHoliday(givenDate));
     }
+    
+    [Theory]
+    [InlineData(2021, new[] { "2021-01-01", "2021-01-06", "2021-04-04", "2021-04-05", "2021-04-25", "2021-05-01", "2021-06-02", "2021-08-15", "2021-11-01", "2021-12-08", "2021-12-25", "2021-12-26" })]
+    [InlineData(2022, new[] { "2022-01-01", "2022-01-06", "2022-04-17", "2022-04-18", "2022-04-25", "2022-05-01", "2022-06-02", "2022-08-15", "2022-11-01", "2022-12-08", "2022-12-25", "2022-12-26" })]
+    [InlineData(2023, new[] { "2023-01-01", "2023-01-06", "2023-04-09", "2023-04-10", "2023-04-25", "2023-05-01", "2023-06-02", "2023-08-15", "2023-11-01", "2023-12-08", "2023-12-25", "2023-12-26" })]
+    [InlineData(2024, new[] { "2024-01-01", "2024-01-06", "2024-03-31", "2024-04-01", "2024-04-25", "2024-05-01", "2024-06-02", "2024-08-15", "2024-11-01", "2024-12-08", "2024-12-25", "2024-12-26" })]
+    [InlineData(2025, new[] { "2025-01-01", "2025-01-06", "2025-04-20", "2025-04-21", "2025-04-25", "2025-05-01", "2025-06-02", "2025-08-15", "2025-11-01", "2025-12-08", "2025-12-25", "2025-12-26" })]
+    public void GetYearlyItalianHolidays_ShouldReturnCorrectResult(int year, string[] expectedDates)
+    {
+        // Arrange
+        IEnumerable<DateTime> expectedDateTimeList = expectedDates.Select(date => DateTime.Parse(date));
 
+        // Act
+        IEnumerable<DateTime> result = ItalianHolidaysUtils.GetYearlyItalianHolidays(year);
+
+        // Assert
+        Assert.Equal(expectedDateTimeList, result);
+    }
+
+    [Theory]
+    [InlineData(1945)] // Year before 1946
+    public void GetYearlyItalianHolidays_ShouldThrowArgumentException(int year)
+    {
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => ItalianHolidaysUtils.GetYearlyItalianHolidays(year));
+    }
+    
     #endregion
 }
