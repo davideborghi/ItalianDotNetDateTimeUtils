@@ -37,13 +37,16 @@ public sealed class ItalianWorkDaysUtilsTests
         // Arrange
         DateTime startDate = DateTime.Parse(startDateString);
         DateTime endDate = DateTime.Parse(endDateString);
-        ItalianHolidaysUtils.IsLocalHoliday = IncludeJune24AsLocalHoliday;
+        ItalianHolidaysUtils.LocalHolidayCondition = IncludeJune24AsLocalHoliday;
 
         // Act
         int result = ItalianWorkDaysUtils.HowManyItalianWorkDaysBetweenDates(startDate, endDate, ItalianWorkDaysUtils.ExcludeWeekendsCondition);
 
         // Assert
         Assert.Equal(expectedWorkingDays, result);
+
+        // Reset
+        ItalianHolidaysUtils.LocalHolidayCondition = null;
     }
 
     [Theory]

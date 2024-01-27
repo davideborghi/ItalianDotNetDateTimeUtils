@@ -19,7 +19,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
         /// <summary>
         /// Represents a condition to consider a date as local holiday.
         /// </summary>
-        public static Func<DateTime, bool>? IsLocalHoliday;
+        public static Func<DateTime, bool>? LocalHolidayCondition;
 
         #endregion
 
@@ -59,7 +59,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
                 || date.IsImmaculateConceptionDay()
                 || date.IsChristmas()
                 || date.IsSaintStephensDay()
-                || (IsLocalHoliday != null && IsLocalHoliday(date));
+                || (LocalHolidayCondition != null && LocalHolidayCondition(date));
         }
 
         /// <summary>

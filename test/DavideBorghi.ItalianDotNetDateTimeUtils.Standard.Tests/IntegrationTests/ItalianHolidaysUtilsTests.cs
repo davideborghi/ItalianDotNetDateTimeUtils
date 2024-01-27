@@ -55,16 +55,18 @@ public sealed class ItalianHolidaysUtilsTests
     [InlineData("2023/06/24")]
     public void Check_If_GivenLocalHolidayDateTime_IsHoliday(DateTime givenDate)
     {
-        ItalianHolidaysUtils.IsLocalHoliday = IncludeJune24AsLocalHoliday;
+        ItalianHolidaysUtils.LocalHolidayCondition = IncludeJune24AsLocalHoliday;
         Assert.True(ItalianHolidaysUtils.IsHoliday(givenDate));
+        ItalianHolidaysUtils.LocalHolidayCondition = null;
     }
 
     [Theory]
     [InlineData("2023/11/04")]
     public void Check_If_GivenLocalHolidayDateTime_IsNotHoliday(DateTime givenDate)
     {
-        ItalianHolidaysUtils.IsLocalHoliday = IncludeJune24AsLocalHoliday;
+        ItalianHolidaysUtils.LocalHolidayCondition = IncludeJune24AsLocalHoliday;
         Assert.False(ItalianHolidaysUtils.IsHoliday(givenDate));
+        ItalianHolidaysUtils.LocalHolidayCondition = null;
     }
     
     [Theory]
