@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
+namespace DavideBorghi.ItalianDotNetDateTimeUtils
 {
+    /// <summary>
+    /// Provides simple static DateTime utility methods.
+    /// </summary>
     public static class DateUtils
     {
         #region Public Methods

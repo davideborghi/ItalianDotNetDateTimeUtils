@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
+namespace DavideBorghi.ItalianDotNetDateTimeUtils
 {
-    public class ItalianHolidaysUtils
+    /// <summary>
+    /// Provides static utility methods when working with Italian holidays checks.
+    /// </summary>
+    public static class ItalianHolidaysUtils
     {
         #region Constants
 

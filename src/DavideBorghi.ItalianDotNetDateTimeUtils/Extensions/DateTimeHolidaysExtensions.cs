@@ -1,7 +1,10 @@
 ﻿using System;
 
-namespace DavideBorghi.ItalianDotNetDateTimeUtils.Standard
+namespace DavideBorghi.ItalianDotNetDateTimeUtils
 {
+    /// <summary>
+    /// Provides extension methods when working with DateTime objects related to national holidays.
+    /// </summary>
     public static class DateTimeHolidaysExtensions
     {
         #region January's
