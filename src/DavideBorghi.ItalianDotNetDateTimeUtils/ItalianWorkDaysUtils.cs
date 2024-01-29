@@ -56,29 +56,29 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
         /// </summary>
         /// <param name="startDate">The start date./param>
         /// <param name="endDate">The end date.</param>
-        /// <paramref name="workingDayCondition">Condition to consider matching dates as work days.</param>
+        /// <paramref name="workDaysCondition">Condition to consider matching dates as work days.</param>
         /// <returns>The number of Italian calculated work days.</returns>
         /// <exception cref="ArgumentException">Thrown when: 
         /// - given start date is after given end date;
         /// - or when one or both of the provided dates' year is before 1946.</exception>
-        public static int HowManyItalianWorkDaysBetweenDates(DateTime startDate, DateTime endDate, Func<DateTime, bool> workingDayCondition)
+        public static int HowManyItalianWorkDaysBetweenDates(DateTime startDate, DateTime endDate, Func<DateTime, bool> workDaysCondition)
         {
             if (startDate > endDate)
             {
                 throw new ArgumentException($"{nameof(startDate)} cannot be after {nameof(endDate)}");
             }
 
-            int workingDaysCount = 0;
+            int workDaysCount = 0;
             DateTime currentDate = startDate;
 
             while (currentDate <= endDate)
             {
-                if (workingDayCondition(currentDate) && !ItalianHolidaysUtils.IsHoliday(currentDate))
-                    workingDaysCount++;
+                if (workDaysCondition(currentDate) && !ItalianHolidaysUtils.IsHoliday(currentDate))
+                    workDaysCount++;
                 currentDate = currentDate.AddDays(1);
             }
 
-            return workingDaysCount;
+            return workDaysCount;
         }
 
         #endregion

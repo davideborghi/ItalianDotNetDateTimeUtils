@@ -98,6 +98,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
             {
                 throw new ArgumentException($"Given {nameof(year)} must be later than 1945");
             }
+            
             return GetItalianHolidaysInRange(new DateTime(year, 1, 1) , new DateTime(year, 12, 31));
         }
 
