@@ -15,14 +15,15 @@ The following checklist content has been suggested by reading this [blog post](h
     - Package release notes (e.g.: <releaseNotes>Upgrade to .NET Standard 2.1 and include relevant implementation refactorings.</releaseNotes>);
     - Update Copiright, if relevant (e.g.: <copyright>Copyright 2024</copyright).
 
-3. Create a package locally by navigating to _src/DavideBorghi.ItalianDotNetDateTimeUtils_ directory and runnning the following command:
+3. Create a package locally by navigating to _src/DavideBorghi.ItalianDotNetDateTimeUtils_ directory and by runnning the following command:
 
     **dotnet pack -c Release DavideBorghi.ItalianDotNetDateTimeUtils.csproj /p:NuspecFile=DavideBorghi.ItalianDotNetDateTimeUtils.nuspec**
 
-4. Push package to Nuget by navigating inside _src/DavideBorghi.ItalianDotNetDateTimeUtils/bin/release_ directory running the following command, specifying replacing 'key' with valid (e.g. not expired) API Key value from [Nuget > Account > Api Keys](https://www.nuget.org/account/apikeys) menu:
+4. Push package to Nuget by navigating inside _src/DavideBorghi.ItalianDotNetDateTimeUtils/bin/release_ directory and by running the following command, specifying YOUR_NUGET_API_KEY with valid (i.e. not expired) API Key value from [Nuget > Account > Api Keys](https://www.nuget.org/account/apikeys) menu
+and PACKAGE_VERSION (e.g: 2.0.0):
 
-    **dotnet nuget push -s https://www.nuget.org/api/v2/package -k 'key' DavideBorghi.ItalianDotNetDateTimeUtils.2.0.0.nupkg**
+    **dotnet nuget push -s https://www.nuget.org/api/v2/package -k YOUR_NUGET_API_KEY DavideBorghi.ItalianDotNetDateTimeUtils.PACKAGE_VERSION.nupkg**
 
-5. Check if package is already available on [Nuget](https://www.nuget.org/packages/DavideBorghi.ItalianDotNetDateTimeUtils/).
+5. Check if the new version of the package is already available on [Nuget](https://www.nuget.org/packages/DavideBorghi.ItalianDotNetDateTimeUtils/).
 
 6. Now, you deserve to enjoy your :coffee: or :tea: or :beer:!
