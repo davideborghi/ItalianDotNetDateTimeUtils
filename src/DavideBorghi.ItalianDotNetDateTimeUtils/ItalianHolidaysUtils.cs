@@ -78,11 +78,13 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
             int num4 = num3 - num3 / 28 * (1 - num3 / 28 * (29 / (num3 + 1)) * ((21 - num) / 11));
             int day = num4 - (year + year / 4 + num4 + 2 - num2 + num2 / 4) % 7 + 28;
             int month = 3;
+
             if (day > 31)
             {
                 month++;
                 day -= 31;
             }
+            
             return new DateTime(year, month, day);
         }
 

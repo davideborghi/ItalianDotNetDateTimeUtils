@@ -41,7 +41,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
         /// <summary>
         /// Gets the number of Italian office days between two given dates, removing weekends and Italian national and local holidays.
         /// </summary>
-        /// <param name="startDate">The start date./param>
+        /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
         /// <returns>The number of Italian office days between two dates.</returns>
         /// <exception cref="ArgumentException">Thrown when provided start date is after given end date.</exception>
@@ -54,9 +54,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
         /// but still removing Italian both national and local holidays.
         /// and keeping the 
         /// </summary>
-        /// <param name="startDate">The start date./param>
+        /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
-        /// <paramref name="workDaysCondition">Condition to consider matching dates as work days.</param>
+        /// <param name="workDaysCondition">Condition to consider matching dates as work days.</param>
         /// <returns>The number of Italian calculated work days.</returns>
         /// <exception cref="ArgumentException">Thrown when: 
         /// - given start date is after given end date;
