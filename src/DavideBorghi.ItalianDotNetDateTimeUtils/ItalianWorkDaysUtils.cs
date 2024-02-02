@@ -41,6 +41,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
         /// <summary>
         /// Gets the number of Italian office days between two given dates, removing weekends and Italian national and local holidays.
         /// </summary>
+        /// <remarks>A typical Italian office week goes from Monday to Friday.</remarks>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
         /// <returns>The number of Italian office days between two dates.</returns>
