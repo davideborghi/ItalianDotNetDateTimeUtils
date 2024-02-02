@@ -10,7 +10,7 @@
 **Declaring Type:** [ItalianWorkDaysUtils](../index.md)  
 **Namespace:** [DavideBorghi.ItalianDotNetDateTimeUtils](../../index.md)  
 **Assembly:** DavideBorghi.ItalianDotNetDateTimeUtils  
-**Assembly Version:** 2.0.0+11b385815d24cc7747d25bd6e9b11b068538c4b2
+**Assembly Version:** 2.0.0+6dff04291173dc22714e279e1fd8491773f99070
 
 Gets the number of Italian office days between two given dates, removing weekends and Italian national and local holidays.
 
@@ -27,6 +27,10 @@ The start date.
 `endDate`  DateTime
 
 The end date.
+
+## Remarks
+
+A typical Italian office week goes from Monday to Friday.
 
 ## Returns
 

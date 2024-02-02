@@ -10,7 +10,7 @@
 **Declaring Type:** [ItalianWorkDaysUtils](../index.md)  
 **Namespace:** [DavideBorghi.ItalianDotNetDateTimeUtils](../../index.md)  
 **Assembly:** DavideBorghi.ItalianDotNetDateTimeUtils  
-**Assembly Version:** 2.0.0+11b385815d24cc7747d25bd6e9b11b068538c4b2
+**Assembly Version:** 2.0.0+6dff04291173dc22714e279e1fd8491773f99070
 
 Gets the number of Italian work days between two given dates, keeping those that match a given condition  but still removing Italian both national and local holidays.
 

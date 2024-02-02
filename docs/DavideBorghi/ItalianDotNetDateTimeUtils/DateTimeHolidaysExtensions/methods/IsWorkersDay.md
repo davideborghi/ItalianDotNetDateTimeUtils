@@ -10,7 +10,7 @@
 **Declaring Type:** [DateTimeHolidaysExtensions](../index.md)  
 **Namespace:** [DavideBorghi.ItalianDotNetDateTimeUtils](../../index.md)  
 **Assembly:** DavideBorghi.ItalianDotNetDateTimeUtils  
-**Assembly Version:** 2.0.0+11b385815d24cc7747d25bd6e9b11b068538c4b2
+**Assembly Version:** 2.0.0+6dff04291173dc22714e279e1fd8491773f99070
 
 Tells if given date is Italian Workers' Day: from 1890 this day has been celebrated on May 1th during Late Modern Period, or during City of Rome foundation celebration day (i.e. April 21st, from 1924 to 1944, both included).
 
