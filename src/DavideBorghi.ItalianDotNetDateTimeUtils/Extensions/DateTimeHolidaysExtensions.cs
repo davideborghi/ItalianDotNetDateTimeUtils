@@ -113,10 +113,10 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
         #region August's
 
         /// <summary>
-        /// Tells if given date is Assumption Of Mary Day (i.e. August 15th).
+        /// Tells if given date is Assumption of Mary Day (i.e. August 15th).
         /// </summary>
         /// <param name="dateTime">The given date.</param>
-        /// <returns>True if given date is Assumption Of Mary Day; otherwise, false.</returns>
+        /// <returns>True if given date is Assumption of Mary Day; otherwise, false.</returns>
         public static bool IsAssumptionOfMaryDay(this DateTime dateTime)
             => dateTime.Month == 8 && dateTime.Day == 15;
 

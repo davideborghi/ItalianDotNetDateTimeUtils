@@ -31,7 +31,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
         /// <summary>
         /// Tells if a particular date is an Italian (national or local) holiday or not.
         /// </summary>
-        /// <param name="dateTime">The given date.</param>
+        /// <param name="date">The given date.</param>
         /// <returns>True if the given date is an Italian (national or local) holiday; otherwise, false.</returns>
         /// <exception cref="ArgumentException">Thrown when provided date's year is before 1946.</exception>
         public static bool IsHoliday(DateTime date)
@@ -84,7 +84,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
                 month++;
                 day -= 31;
             }
-            
+
             return new DateTime(year, month, day);
         }
 
@@ -109,7 +109,7 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
         /// </summary>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
-        /// <returns></returns>
+        /// <returns>A list of Italian holidays in given dates range.</returns>
         /// <exception cref="ArgumentException">Thrown when provided start date is after given end date.</exception>
         /// <exception cref="ArgumentException">Thrown when one or both of the provided dates' year is before 1946.</exception>
         public static IEnumerable<DateTime> GetItalianHolidaysInRange(DateTime startDate, DateTime endDate)

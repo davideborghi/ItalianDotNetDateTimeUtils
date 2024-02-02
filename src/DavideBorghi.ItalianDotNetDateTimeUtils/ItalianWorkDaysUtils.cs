@@ -52,7 +52,6 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
         /// <summary>
         /// Gets the number of Italian work days between two given dates, keeping those that match a given condition 
         /// but still removing Italian both national and local holidays.
-        /// and keeping the 
         /// </summary>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
