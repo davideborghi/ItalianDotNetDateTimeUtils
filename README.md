@@ -30,4 +30,4 @@ Maintainers can find under the [docs](docs) directory the following files:
 - [Docs generation checklist](docs/docs-generation-checklist.md) to guide them generate documents from code using an open source CLI tool.
 
 ### Code of conduct
-Currently used code of conduct can be found [here](docs/CODE_OF_CONDUCT.md).
+Currently used code of conduct can be found [here](CODE_OF_CONDUCT.md).
