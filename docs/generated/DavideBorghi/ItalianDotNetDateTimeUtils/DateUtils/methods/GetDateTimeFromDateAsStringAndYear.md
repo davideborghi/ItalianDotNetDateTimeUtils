@@ -10,7 +10,7 @@
 **Declaring Type:** [DateUtils](../index.md)  
 **Namespace:** [DavideBorghi.ItalianDotNetDateTimeUtils](../../index.md)  
 **Assembly:** DavideBorghi.ItalianDotNetDateTimeUtils  
-**Assembly Version:** 2.0.0+6dff04291173dc22714e279e1fd8491773f99070
+**Assembly Version:** 2.0.0+9a839575450285158e093a3e409e22ca7aa80f11
 
 Gets the date time from a date formatted as string plus the year as an integer.
 
@@ -22,7 +22,7 @@ public static DateTime GetDateTimeFromDateAsStringAndYear(string dateAsString, i
 
 `dateAsString`  string
 
-Date formatted as ddMM
+Date formatted as ddMM.
 
 `year`  int
 
@@ -38,7 +38,7 @@ The day in DateTime format.
 
 ArgumentOutOfRangeException
 
-Thrown when:              \- provided day or month part of given date as string are not in a valid range;              \- or when given year value is less than System.Int32.MinValue or greater than System.Int32.MaxValue.              \- or when the corresponding DateTime is not valid.
+Thrown when:              \- provided day or month part of given date as string are not in a valid range;              \- or when given year value is less than System.Int32.MinValue or greater than System.Int32.MaxValue;              \- or when the corresponding DateTime is not valid.
 
 ArgumentNullException
 

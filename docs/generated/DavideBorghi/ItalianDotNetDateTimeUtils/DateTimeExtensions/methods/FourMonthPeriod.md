@@ -10,7 +10,7 @@
 **Declaring Type:** [DateTimeExtensions](../index.md)  
 **Namespace:** [DavideBorghi.ItalianDotNetDateTimeUtils](../../index.md)  
 **Assembly:** DavideBorghi.ItalianDotNetDateTimeUtils  
-**Assembly Version:** 2.0.0+6dff04291173dc22714e279e1fd8491773f99070
+**Assembly Version:** 2.0.0+9a839575450285158e093a3e409e22ca7aa80f11
 
 Gets the ordinal number of the date corresponding fourth month period.
 
