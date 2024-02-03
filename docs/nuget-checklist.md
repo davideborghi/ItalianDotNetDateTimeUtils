@@ -1,7 +1,7 @@
-## Nuget checklist
+## NuGet checklist
 
 ### Introduction and scope
-This markdown file aims to be an initial short guide to follow when a new release needs to be packed and published to Nuget.
+This markdown file aims to be an initial short guide to follow when a new release needs to be packed and published to NuGet.
 
 ### Guided checklist
 The following checklist content has been suggested by reading this [blog post](https://ardalis.com/nuget-publication-checklist) by Steve Smith (Ardalis). 
@@ -19,11 +19,11 @@ The following checklist content has been suggested by reading this [blog post](h
 
     **dotnet pack -c Release DavideBorghi.ItalianDotNetDateTimeUtils.csproj /p:NuspecFile=DavideBorghi.ItalianDotNetDateTimeUtils.nuspec**
 
-4. Push package to Nuget by navigating inside _src/DavideBorghi.ItalianDotNetDateTimeUtils/bin/release_ directory and by running the following command, specifying YOUR_NUGET_API_KEY with valid (i.e. not expired) API Key value from [Nuget > Account > Api Keys](https://www.nuget.org/account/apikeys) menu
+4. Push package to NuGet by navigating inside _src/DavideBorghi.ItalianDotNetDateTimeUtils/bin/release_ directory and by running the following command, specifying YOUR_NUGET_API_KEY with valid (i.e. not expired) API Key value from [NuGet &#8594; Account &#8594; Api Keys](https://www.nuget.org/account/apikeys) menu
 and PACKAGE_VERSION (e.g: 2.0.0):
 
     **dotnet nuget push -s https://www.nuget.org/api/v2/package -k YOUR_NUGET_API_KEY DavideBorghi.ItalianDotNetDateTimeUtils.PACKAGE_VERSION.nupkg**
 
-5. Check if the new version of the package is already available on [Nuget](https://www.nuget.org/packages/DavideBorghi.ItalianDotNetDateTimeUtils/).
+5. Check if the new version of the package is already available on [NuGet](https://www.nuget.org/packages/DavideBorghi.ItalianDotNetDateTimeUtils/).
 
 6. Now, you deserve to enjoy your :coffee: or :tea: or :beer:!
