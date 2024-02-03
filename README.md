@@ -15,9 +15,21 @@ As a humble, simple and pluggable .NET Standard 2.1 utility library, my role is 
 
 For this reason, please, feel free to file comments, open issues and, if you want, even fork my code and open pull requests: only bear in mind to check my open source licence to be nice with me.
 
-You can find me on **[Nuget](https://www.nuget.org/packages/DavideBorghi.ItalianDotNetDateTimeUtils/)**!
+You can find me on **[Nuget](https://www.nuget.org/packages/DavideBorghi.ItalianDotNetDateTimeUtils)**!
 
 ## Developers' guide
+
+### Installation and prerequisites
+
+The library uses .NET Standard 2.1, to support both .NET Framework and .NET (Core).
+
+You should install the latest version [via NuGet](https://www.nuget.org/packages/DavideBorghi.ItalianDotNetDateTimeUtils):
+
+    Install-Package DavideBorghi.ItalianDotNetDateTimeUtils
+    
+Or via the .NET Core command line interface:
+
+    dotnet add package DavideBorghi.ItalianDotNetDateTimeUtils
 
 ### New user documentation
 You can find generated markdown files documenting the available APIs [here](docs/generated/DavideBorghi/index.md).
