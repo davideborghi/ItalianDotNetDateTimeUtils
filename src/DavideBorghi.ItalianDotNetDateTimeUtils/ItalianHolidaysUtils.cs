@@ -22,6 +22,9 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
         /// <summary>
         /// Represents a condition to consider a date as local holiday.
         /// </summary>
+        /// <remarks>
+        /// Remember to set or update this condition to let the utility methods consider it.
+        /// </remarks>
         public static Func<DateTime, bool>? LocalHolidayCondition;
 
         #endregion

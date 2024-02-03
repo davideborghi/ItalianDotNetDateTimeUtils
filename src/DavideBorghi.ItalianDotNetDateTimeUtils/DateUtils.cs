@@ -13,12 +13,12 @@ namespace DavideBorghi.ItalianDotNetDateTimeUtils
         /// <summary>
         /// Gets the date time from a date formatted as string plus the year as an integer.
         /// </summary>
-        /// <param name="dateAsString">Date formatted as ddMM</param>
+        /// <param name="dateAsString">Date formatted as ddMM.</param>
         /// <param name="year">An integer value representing the year.</param>
         /// <returns>The day in DateTime format.</returns>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when:
         /// - provided day or month part of given date as string are not in a valid range;
-        /// - or when given year value is less than System.Int32.MinValue or greater than System.Int32.MaxValue.
+        /// - or when given year value is less than System.Int32.MinValue or greater than System.Int32.MaxValue;
         /// - or when the corresponding DateTime is not valid.</exception>
         ///<exception cref="ArgumentNullException">Thrown when provided day or month part of given date as string are null or empty.</exception>
         ///<exception cref="FormatException">Thrown when provided day or month part of given date as string are not in the correct integer format.</exception>
