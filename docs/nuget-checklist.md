@@ -13,7 +13,7 @@ The following checklist content has been suggested by reading this [blog post](h
 2. Update **DavideBorghi.ItalianDotNetDateTimeUtils.nuspec** providing:
     - Version number update (e.g.: <version>2.0.0</version>);
     - Package release notes (e.g.: <releaseNotes>Upgrade to .NET Standard 2.1 and include relevant implementation refactorings.</releaseNotes>);
-    - Update Copiright, if relevant (e.g.: <copyright>Copyright 2024</copyright).
+    - Update Copyright, if relevant (e.g.: <copyright>Copyright 2024</copyright).
 
 3. Create a package locally by navigating to _src/DavideBorghi.ItalianDotNetDateTimeUtils_ directory and by runnning the following command:
 
