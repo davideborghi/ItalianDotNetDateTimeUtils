@@ -11,7 +11,7 @@
     <projectUrl>https://github.com/davideborghi/ItalianDotNetDateTimeUtils</projectUrl>
     <description>Simple and pluggable utilities library that aims to help Italian developers or any developer 
       who need support when dealing with Italian holidays and work days calculations.</description>
-    <releaseNotes>Upgrade to .NET Standard 2.0 and include relevant implementation refactorings.</releaseNotes>
+    <releaseNotes>Upgrade to .NET Standard 2.0, including a relevant implementation refactoring.</releaseNotes>
     <copyright>Copyright 2024</copyright>
     <tags>DateTimeUtils Italian ItalianDateTime NetStandard2.0</tags>
   </metadata>
