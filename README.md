@@ -21,7 +21,7 @@ You can find me on **[NuGet](https://www.nuget.org/packages/DavideBorghi.Italian
 
 ### Installation and prerequisites
 
-The library uses .NET Standard 2.1, to support both .NET Framework and .NET (Core).
+The library uses .NET Standard 2.1.
 
 You should install the latest version [via NuGet](https://www.nuget.org/packages/DavideBorghi.ItalianDotNetDateTimeUtils):
 
