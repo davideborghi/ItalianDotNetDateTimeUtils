@@ -10,7 +10,7 @@
 **Declaring Type:** [DateTimeExtensions](../index.md)  
 **Namespace:** [DavideBorghi.ItalianDotNetDateTimeUtils](../../index.md)  
 **Assembly:** DavideBorghi.ItalianDotNetDateTimeUtils  
-**Assembly Version:** 2.0.0+3957bdb57fce6a63d58d9b7a404e5573f6b40cde
+**Assembly Version:** 2.0.0+47795d243b562f740038183afc91f1a19a4cde19
 
 Gets an enum representing the date corresponding quarter.
 
