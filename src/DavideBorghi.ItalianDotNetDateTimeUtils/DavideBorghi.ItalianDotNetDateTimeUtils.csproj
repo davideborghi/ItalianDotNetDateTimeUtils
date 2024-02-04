@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>DavideBorghi.ItalianDotNetDateTimeUtils</AssemblyName>
     <Version>2.0.0</Version>
-    <PackageReleaseNotes>Upgrade to .NET Standard 2.0, including a relevant implementation refactoring.</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgrade to .NET Standard 2.0 and include a relevant overall refactoring.</PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
