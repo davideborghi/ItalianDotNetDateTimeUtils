@@ -9,7 +9,7 @@
 
 **Namespace:** [DavideBorghi.ItalianDotNetDateTimeUtils](../index.md)  
 **Assembly:** DavideBorghi.ItalianDotNetDateTimeUtils  
-**Assembly Version:** 2.0.0+04bcf6e72dd23788f3d92e288dae9244901024d9
+**Assembly Version:** 2.0.0+3957bdb57fce6a63d58d9b7a404e5573f6b40cde
 
 Provides simple static DateTime utility methods.
 
