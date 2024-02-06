@@ -17,6 +17,8 @@ For this reason, please, feel free to file comments, open issues and, if you wan
 
 You can find me on **[NuGet](https://www.nuget.org/packages/DavideBorghi.ItalianDotNetDateTimeUtils)**!
 
+And by the way, if you want to know me better, [here's my changelog](CHANGELOG.md).
+
 ## Developers' guide
 
 ### Installation and prerequisites
