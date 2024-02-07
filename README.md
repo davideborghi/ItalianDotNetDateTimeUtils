@@ -1,12 +1,47 @@
-# ItalianDotNetDateTimeUtils
+# Davide Borghi's ItalianDotNetDateTimeUtils
 
-## Hello everybody!
+## Introduction
 
-My Name is __ItalianDotNetDateTimeUtils__ I'm a class library writed by [Davide Borghi](https://www.linkedin.com/in/davide-borghi-87364014a/). He wrote me because he was bored to copy and paste this class in every project he was working on.
+### Hello everybody!
 
-My role is to support Italian developers or any developers who need support with Italian Calendar.
+My name is __ItalianDotNetDateTimeUtils__ and I'm a class library written by [Davide Borghi](https://www.linkedin.com/in/davide-borghi-87364014a/). 
+He wrote me because he was bored to copy and paste a static class in every project he was working on.
 
-**I'm currently under developing, at the moment I have very little tests and documentation, so be patients with me, I promise, my developer is working hard on this things!**
+Another stubborn developer, [Massimo Serra](https://www.linkedin.com/in/massimo-serra/), also decided to support Davide with my code.
 
-You can find me on [nuget](https://www.nuget.org/packages/DavideBorghi.ItalianDotNetDateTimeUtils/)!
+As a humble, simple and pluggable .NET Standard 2.0 utility library, my role is to help Italian developers or any developer who need support when dealing with Italian holidays (both national and customizable local ones) and work days calculations, which sometimes can be really boring!
 
+**Even if I have a good set of unit tests, my developers are committed to extend my features and documentation too, so be patient with me, I promise, they're working hard on this things in their spare time!**
+
+For this reason, please, feel free to file comments, open issues and, if you want, even fork my code and open pull requests: only bear in mind to check my open source licence to be nice with me.
+
+You can find me on **[NuGet](https://www.nuget.org/packages/DavideBorghi.ItalianDotNetDateTimeUtils)**!
+
+And by the way, if you want to know me better, [here's my changelog](CHANGELOG.md).
+
+## Developers' guide
+
+### Installation and prerequisites
+
+The library uses .NET Standard 2.0 to support both .NET Framework and .NET (Core).
+
+You should install the latest version [via NuGet](https://www.nuget.org/packages/DavideBorghi.ItalianDotNetDateTimeUtils):
+
+    Install-Package DavideBorghi.ItalianDotNetDateTimeUtils
+    
+Or via the .NET Core command line interface:
+
+    dotnet add package DavideBorghi.ItalianDotNetDateTimeUtils
+
+### New user documentation
+You can find generated markdown files documenting the available APIs [here](docs/generated/DavideBorghi/index.md).
+
+## Maintainers' guide
+
+### In short
+Maintainers can find under the [docs](docs) directory the following files:
+1. [NuGet checklist](docs/nuget-checklist.md) to help them pack and release a new version of the NuGet package;
+2. [Docs generation checklist](docs/docs-generation-checklist.md) to guide them generate documents from code using an open source CLI tool.
+
+### Code of conduct
+Currently used code of conduct can be found [here](CODE_OF_CONDUCT.md).
