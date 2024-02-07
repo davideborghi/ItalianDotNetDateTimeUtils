@@ -40,8 +40,8 @@ You can find generated markdown files documenting the available APIs [here](docs
 
 ### In short
 Maintainers can find under the [docs](docs) directory the following files:
-- [NuGet checklist](docs/nuget-checklist.md) to help them pack and release a new version of the NuGet package;
-- [Docs generation checklist](docs/docs-generation-checklist.md) to guide them generate documents from code using an open source CLI tool.
+1. [NuGet checklist](docs/nuget-checklist.md) to help them pack and release a new version of the NuGet package;
+2. [Docs generation checklist](docs/docs-generation-checklist.md) to guide them generate documents from code using an open source CLI tool.
 
 ### Code of conduct
 Currently used code of conduct can be found [here](CODE_OF_CONDUCT.md).
