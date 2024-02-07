@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 Upgrade to .NET Standard 2.0 and include a relevant overall refactoring.
 
 ### Added
-- Migration to **[.NET Standard 2.0](https://learn.microsoft.com/it-it/dotnet/standard/net-standard?tabs=net-standard-2-0)**;
+- Migration to **[.NET Standard 2.0](https://learn.microsoft.com/dotnet/standard/net-standard?tabs=net-standard-2-0)**;
 - Relevant rewrite and **refactor** of core components;
 - New `DateUtils.cs` class providing simple static `DateTime` utility methods;
 - New `ItalianHolidaysUtils.cs` class providing static utility methods when working with Italian holidays checks;
